@@ -1,0 +1,27 @@
+{
+  "UIClose": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "close.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "post_wait_freezes": 100
+  },
+  "UIRetry": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "retry.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "post_wait_freezes": 100,
+    "max_hit": 10
+  }
+}

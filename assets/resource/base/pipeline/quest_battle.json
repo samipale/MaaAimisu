@@ -1,0 +1,236 @@
+{
+  "QuestBattle_Entry": {
+    "next": [
+      "QuestBattle_QuestList"
+    ],
+    "timeout": 5000
+  },
+  "QuestBattle_QuestList": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "quest/battle_start.png"
+      }
+    },
+    "next": [
+      "QuestBattle_HomeButton"
+    ]
+  },
+  "QuestBattle_HomeButton": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": [
+          "home.png"
+        ]
+      }
+    },
+    "next": [
+      "QuestBattle_FindNewQuest2",
+      "QuestBattle_FindNewQuest1",
+      "QuestBattle_QuestDone"
+    ]
+  },
+  "QuestBattle_FindNewQuest2": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": [
+          "quest/quest_clear.png"
+        ],
+        "roi": "QuestBattle_HomeButton",
+        "roi_offset": [
+          -13,
+          -389,
+          335,
+          55
+        ]
+      }
+    },
+    "action": {
+      "type": "Click",
+      "param": {
+        "target": "QuestBattle_HomeButton",
+        "target_offset": [
+          -3,
+          -379,
+          325,
+          45
+        ]
+      }
+    },
+    "next": [
+      "QuestBattle_StartQuest"
+    ],
+    "inverse": true,
+    "post_wait_freezes": 100
+  },
+  "QuestBattle_FindNewQuest1": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": [
+          "quest/quest_clear.png"
+        ],
+        "roi": "QuestBattle_HomeButton",
+        "roi_offset": [
+          -13,
+          -492,
+          335,
+          55
+        ]
+      }
+    },
+    "next": [
+      "QuestBattle_CheckBonusFlag",
+      "QuestBattle_ClickQuest1"
+    ],
+    "inverse": true
+  },
+  "QuestBattle_CheckBonusFlag": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": [
+          "quest/bonus_quest.png"
+        ],
+        "roi": "QuestBattle_HomeButton",
+        "roi_offset": [
+          -13,
+          -492,
+          335,
+          55
+        ]
+      }
+    },
+    "focus": {
+      "Node.Recognition.Succeeded": "推图完成！"
+    }
+  },
+  "QuestBattle_ClickQuest1": {
+    "action": {
+      "type": "Click",
+      "param": {
+        "target": "QuestBattle_HomeButton",
+        "target_offset": [
+          -3,
+          -482,
+          325,
+          45
+        ]
+      }
+    },
+    "next": [
+      "QuestBattle_StartQuest"
+    ],
+    "post_wait_freezes": 100
+  },
+  "QuestBattle_QuestDone": {
+    "focus": {
+      "Node.Recognition.Succeeded": "推图完成！"
+    }
+  },
+  "QuestBattle_StartQuest": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "quest/battle_start.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "[JumpBack]QuestBattle_Battling",
+      "QuestBattle_Result",
+      "[JumpBack]QuestBattle_ChatSkip",
+      "QuestBattle_Failed",
+      "QuestBattle_OutOfBP",
+      "[JumpBack]UIRetry"
+    ],
+    "post_wait_freezes": 100
+  },
+  "QuestBattle_ChatSkip": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "scan.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "post_wait_freezes": 100
+  },
+  "QuestBattle_Battling": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "quest/battling.png"
+      }
+    },
+    "post_delay": 5000
+  },
+  "QuestBattle_Failed": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "quest/battle_failed.png"
+      }
+    },
+    "focus": {
+      "Node.Recognition.Succeeded": "战斗失败，推图完成！"
+    }
+  },
+  "QuestBattle_OutOfBP": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "quest/BP_recover.png"
+      }
+    },
+    "focus": {
+      "Node.Recognition.Succeeded": "BP不足，推图完成！"
+    }
+  },
+  "QuestBattle_Result": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "quest/battle_result.png"
+      }
+    },
+    "next": [
+      "[JumpBack]UIClose",
+      "QuestBattle_Result_Next"
+    ]
+  },
+  "QuestBattle_BonusQuest": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "quest/bonus_quest_activate.png"
+      }
+    },
+    "action": {
+      "type": "StopTask"
+    }
+  },
+  "QuestBattle_Result_Next": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "next.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "QuestBattle_QuestList",
+      "[JumpBack]UIRetry"
+    ],
+    "post_wait_freezes": 100
+  }
+}
+
