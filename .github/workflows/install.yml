@@ -11,19 +11,6 @@ on:
   push:
     tags:
       - "v*"
-    branches:
-      - "**"
-    paths:
-      - ".github/workflows/install.yml"
-      - "assets/**"
-      - "**.py"
-  pull_request:
-    branches:
-      - "**"
-    paths:
-      - ".github/workflows/install.yml"
-      - "assets/**"
-      - "**.py"
   workflow_dispatch:
 
 jobs:
@@ -116,7 +103,7 @@ jobs:
         shell: bash
         run: |
           rm -rf MFA/runtimes
-      
+
       - name: Install
         shell: bash
         run: |
@@ -183,7 +170,7 @@ jobs:
           for f in *; do
             (cd $f && zip -r ../$f-${{ needs.meta.outputs.tag }}.zip .)
           done
-          
+
       - uses: softprops/action-gh-release@v2
         with:
           files: assets/*

@@ -5,7 +5,7 @@
     "contact": "https://github.com/samipale/MaaAimisu",
     "welcome": "欢迎使用 MaaAimisu!",
     "github": "https://github.com/samipale/MaaAimisu",
-    "version": "0.1.0",
+    "version": "0.0.0",
     "controller": [
         {
             "name": "安卓端",
