@@ -14,7 +14,8 @@
 目前仍在开发阶段。
 
 ## 常见问题
-暂无，如有问题请提交Issue。
+* 如使用DMM端且游戏分辨率不是1280*720，需要自行在根目录的interface.json中删除display_raw一行。
+* 如有其他问题，请提交Issue。
 
 ## 参与开发
 
@@ -24,8 +25,8 @@
 
 ## 鸣谢
 
-* 本项目底层框架由 **[MaaFramework](https://github.com/MaaXYZ/MaaFramework)** 强力驱动！
-* 本项目UI由 **[MFAAvalonia](https://github.com/MaaXYZ/MFAAvalonia)** 强力驱动！
+* 感谢 **[MaaFramework](https://github.com/MaaXYZ/MaaFramework)** 提供的底层框架。
+* 感谢 **[MFAAvalonia](https://github.com/MaaXYZ/MFAAvalonia)** 提供的通用UI。
 
 感谢以下开发者对本项目作出的贡献:
 
