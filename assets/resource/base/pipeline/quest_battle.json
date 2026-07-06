@@ -62,8 +62,7 @@
     "next": [
       "QuestBattle_StartQuest"
     ],
-    "inverse": true,
-    "post_wait_freezes": 100
+    "inverse": true
   },
   "QuestBattle_FindNewQuest1": {
     "recognition": {
@@ -122,8 +121,7 @@
     },
     "next": [
       "QuestBattle_StartQuest"
-    ],
-    "post_wait_freezes": 100
+    ]
   },
   "QuestBattle_QuestDone": {
     "focus": {
@@ -146,9 +144,8 @@
       "[JumpBack]QuestBattle_ChatSkip",
       "QuestBattle_Failed",
       "QuestBattle_OutOfBP",
-      "[JumpBack]UIRetry"
-    ],
-    "post_wait_freezes": 100
+      "[JumpBack]Common_UIRetry"
+    ]
   },
   "QuestBattle_ChatSkip": {
     "recognition": {
@@ -159,8 +156,7 @@
     },
     "action": {
       "type": "Click"
-    },
-    "post_wait_freezes": 100
+    }
   },
   "QuestBattle_Battling": {
     "recognition": {
@@ -201,7 +197,7 @@
       }
     },
     "next": [
-      "[JumpBack]UIClose",
+      "[JumpBack]Common_UIClose",
       "QuestBattle_Result_Next"
     ]
   },
@@ -228,9 +224,8 @@
     },
     "next": [
       "QuestBattle_QuestList",
-      "[JumpBack]UIRetry"
-    ],
-    "post_wait_freezes": 100
+      "[JumpBack]Common_UIRetry"
+    ]
   }
 }
 

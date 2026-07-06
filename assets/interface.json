@@ -42,6 +42,7 @@
     // },
     "task": [],
     "import": [
+        "tasks/login.json",
         "tasks/quest_battle.json"
     ]
 }

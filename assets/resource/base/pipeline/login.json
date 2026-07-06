@@ -1,0 +1,86 @@
+{
+  "Login_Entry": {
+    "next": [
+      "Login_GameStart",
+      "[JumpBack]Login_StartApp"
+    ]
+  },
+  "Login_StartApp": {
+    "action": {
+      "type": "StartApp",
+      "param": {
+        "package": "com.dmm.games.irismysteria"
+      }
+    },
+    "mix_hit": 60,
+    "post_wait_freezes": 1000
+  },
+  "Login_GameStart": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "login/game_start.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "Login_GameStart",
+      "[JumpBack]Login_LoginBonus",
+      "[JumpBack]Common_UIClose",
+      "Login_ClickMenu"
+    ]
+  },
+  "Login_LoginBonus": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "login/tap_the_screen.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    }
+  },
+  "Login_ClickMenu": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "menu.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "Login_MenuInterface",
+      "[JumpBack]Common_UIClose",
+      "Login_ClickMenu"
+    ]
+  },
+  "Login_MenuInterface": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "login/menu_interface.png"
+      }
+    },
+    "next": [
+      "Login_CheckMenuButton",
+      "[JumpBack]Common_UIClose"
+    ]
+  },
+  "Login_CheckMenuButton": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "menu.png"
+      }
+    },
+    "focus": {
+      "Node.Recognition.Succeeded": "登录成功"
+    }
+  }
+}
+
