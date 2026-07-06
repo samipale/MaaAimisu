@@ -1,9 +1,9 @@
 {
-    "task": [
-        {
-            "name": "自动推图",
-            "entry": "QuestBattle_Entry",
-            "description": "请在要推图的任务列表启动任务"
-        }
-    ]
+  "task": [
+    {
+      "name": "自动推图",
+      "entry": "QuestBattle_Entry",
+      "description": "请在要推图的任务列表启动任务"
+    }
+  ]
 }

@@ -141,22 +141,11 @@
     "next": [
       "[JumpBack]QuestBattle_Battling",
       "QuestBattle_Result",
-      "[JumpBack]QuestBattle_ChatSkip",
+      "[JumpBack]Common_ChatSkip",
       "QuestBattle_Failed",
       "QuestBattle_OutOfBP",
       "[JumpBack]Common_UIRetry"
     ]
-  },
-  "QuestBattle_ChatSkip": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "scan.png"
-      }
-    },
-    "action": {
-      "type": "Click"
-    }
   },
   "QuestBattle_Battling": {
     "recognition": {

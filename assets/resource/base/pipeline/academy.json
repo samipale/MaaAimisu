@@ -1,0 +1,96 @@
+{
+  "Academy_Entry": {
+    "next": [
+      "Academy_AcademyButton"
+    ],
+    "focus": {
+      "Node.Recognition.Succeeded": "开始训练"
+    }
+  },
+  "Academy_AcademyButton": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "academy/academy.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "Academy_StartTraining"
+    ]
+  },
+  "Academy_StartTraining": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "academy/start_training.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "Academy_ReduceTime"
+    ]
+  },
+  "Academy_ReduceTime": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "reduce.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "Academy_Decide"
+    ]
+  },
+  "Academy_Decide": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "decide.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "[JumpBack]Common_Skip",
+      "[JumpBack]Common_ChatSkip",
+      "[JumpBack]Common_UIClose",
+      "Academy_Next"
+    ]
+  },
+  "Academy_Next": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "next.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "Academy_Next",
+      "Academy_AcademyInterface",
+      "[JumpBack]Common_UIRetry"
+    ]
+  },
+  "Academy_AcademyInterface": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "academy/academy_interface.png"
+      }
+    },
+    "focus": {
+      "Node.Recognition.Succeeded": "训练完成"
+    }
+  }
+}
