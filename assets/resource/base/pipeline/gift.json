@@ -1,0 +1,65 @@
+{
+  "Gift_Entry": {
+    "next": [
+      "Gift_GiftButton",
+      "[JumpBack]Common_BackToMenu"
+    ]
+  },
+  "Gift_GiftButton": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "gift/gift.png"
+      }
+    },
+    "next": [
+      "Gift_CheckExclamation_ClickGiftButton",
+      "Gift_NoGift"
+    ]
+  },
+  "Gift_CheckExclamation_ClickGiftButton": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "!.png",
+        "roi": "Gift_GiftButton",
+        "roi_offset": [
+          32,
+          -45,
+          4,
+          20
+        ]
+      }
+    },
+    "action": {
+      "type": "Click",
+      "param": {
+        "target": "Gift_GiftButton"
+      }
+    },
+    "next": [
+      "Gift_ClaimAll"
+    ]
+  },
+  "Gift_NoGift": {
+    "focus": {
+      "Node.Recognition.Succeeded": "没有礼物需要领取"
+    }
+  },
+  "Gift_ClaimAll": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "gift/claim_all_except_costume.png",
+        "method": 10001,
+        "threshold": 0.8
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "Common_UIClose"
+    ]
+  }
+}

@@ -45,6 +45,7 @@
         "tasks/login.json",
         "tasks/academy.json",
         "tasks/expedition.json",
+        "tasks/gift.json",
         "tasks/quest_battle.json"
     ]
 }

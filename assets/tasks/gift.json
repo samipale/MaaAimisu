@@ -1,0 +1,8 @@
+{
+  "task": [
+    {
+      "name": "领取礼物",
+      "entry": "Gift_Entry"
+    }
+  ]
+}
