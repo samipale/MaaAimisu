@@ -1,7 +1,7 @@
 {
   "task": [
     {
-      "name": "自动登录",
+      "name": "登录",
       "entry": "Login_Entry"
     }
   ]

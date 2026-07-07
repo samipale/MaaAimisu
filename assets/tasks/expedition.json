@@ -1,7 +1,7 @@
 {
   "task": [
     {
-      "name": "自动远征",
+      "name": "远征重新派遣",
       "entry": "Expedition_Entry"
     }
   ]
