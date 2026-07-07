@@ -33,7 +33,9 @@
     },
     "action": {
       "type": "Click",
-      "target": "StampBook_StampBookButton"
+      "param": {
+        "target": "StampBook_StampBookButton"
+      }
     },
     "next": [
       "StampBook_BookMission"
@@ -72,7 +74,9 @@
     },
     "action": {
       "type": "Click",
-      "target": "StampBook_BookMission"
+      "param": {
+        "target": "StampBook_BookMission"
+      }
     },
     "next": [
       "StampBook_BookMission_WaitFreezes"
@@ -182,7 +186,9 @@
     },
     "action": {
       "type": "Click",
-      "target": "StampBook_WeeklyMission"
+      "param": {
+        "target": "StampBook_WeeklyMission"
+      }
     },
     "next": [
       "StampBook_ClaimWeeklyReward"
@@ -250,7 +256,9 @@
     },
     "action": {
       "type": "Click",
-      "target": "StampBook_SeasonMission"
+      "param": {
+        "target": "StampBook_SeasonMission"
+      }
     },
     "next": [
       "StampBook_ClaimSeasonReward"
@@ -316,7 +324,9 @@
     },
     "action": {
       "type": "Click",
-      "target": "StampBook_BookReward"
+      "param": {
+        "target": "StampBook_BookReward"
+      }
     },
     "next": [
       "StampBook_ClaimBookReward"

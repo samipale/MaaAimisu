@@ -33,7 +33,9 @@
     },
     "action": {
       "type": "Click",
-      "target": "Mission_MissionButton"
+      "param": {
+        "target": "Mission_MissionButton"
+      }
     },
     "next": [
       "Mission_WeeklyMission"
@@ -134,7 +136,9 @@
     },
     "action": {
       "type": "Click",
-      "target": "Mission_EventMission"
+      "param": {
+        "target": "Mission_EventMission"
+      }
     },
     "next": [
       "Mission_ClaimEventReward"
