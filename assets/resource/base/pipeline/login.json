@@ -29,6 +29,9 @@
       "Login_GameStart",
       "[JumpBack]Login_LoginBonus",
       "[JumpBack]Common_UIClose",
+      "[JumpBack]Common_Skip",
+      "[JumpBack]Common_UINo",
+      "[JumpBack]Login_NewCostume",
       "Login_ClickMenu"
     ]
   },
@@ -37,6 +40,17 @@
       "type": "TemplateMatch",
       "param": {
         "template": "login/tap_the_screen.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    }
+  },
+  "Login_NewCostume": {
+    "recognition": {
+      "type": "OCR",
+      "param": {
+        "expected": "画面タップで次へ進みます"
       }
     },
     "action": {
@@ -64,18 +78,6 @@
       "type": "TemplateMatch",
       "param": {
         "template": "login/menu_interface.png"
-      }
-    },
-    "next": [
-      "Login_CheckMenuButton",
-      "[JumpBack]Common_UIClose"
-    ]
-  },
-  "Login_CheckMenuButton": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "menu.png"
       }
     },
     "focus": {

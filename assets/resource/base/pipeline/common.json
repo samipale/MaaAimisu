@@ -13,6 +13,19 @@
       "type": "Click"
     }
   },
+  "Common_UINo": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": [
+          "no.png"
+        ]
+      }
+    },
+    "action": {
+      "type": "Click"
+    }
+  },
   "Common_UIRetry": {
     "recognition": {
       "type": "TemplateMatch",
