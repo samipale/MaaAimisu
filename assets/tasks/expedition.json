@@ -1,0 +1,8 @@
+{
+  "task": [
+    {
+      "name": "自动远征",
+      "entry": "Expedition_Entry"
+    }
+  ]
+}

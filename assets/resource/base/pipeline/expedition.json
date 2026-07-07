@@ -1,0 +1,91 @@
+{
+  "Expedition_Entry": {
+    "next": [
+      "Expedition_ExpeditionButton",
+      "[JumpBack]Common_BackToMenu"
+    ]
+  },
+  "Expedition_ExpeditionButton": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "expedition/expedition.png"
+      }
+    },
+    "next": [
+      "Expedition_CheckExclamation_ClickExpeditionButton",
+      "Expedition_NotYetReturn"
+    ]
+  },
+  "Expedition_CheckExclamation_ClickExpeditionButton": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "!.png",
+        "roi": "Expedition_ExpeditionButton",
+        "roi_offset": [
+          48,
+          -49,
+          -22,
+          16
+        ]
+      }
+    },
+    "action": {
+      "type": "Click",
+      "param": {
+        "target": "Expedition_ExpeditionButton"
+      }
+    },
+    "next": [
+      "Expedition_Redeploy",
+      "[JumpBack]Common_UIClose"
+    ]
+  },
+  "Expedition_NotYetReturn": {
+    "focus": {
+      "Node.Recognition.Succeeded": "远征队伍未返回，任务完成"
+    }
+  },
+  "Expedition_Redeploy": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "expedition/redeploy.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "Expedition_ReStartExpedition",
+      "Expedition_Redeploy",
+      "[JumpBack]Common_UIClose"
+    ]
+  },
+  "Expedition_ReStartExpedition": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "expedition/restart_expedition.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "Expedition_ExpeditionInterface"
+    ]
+  },
+  "Expedition_ExpeditionInterface": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "expedition/expedition_interface.png"
+      }
+    },
+    "focus": {
+      "Node.Recognition.Succeeded": "重新派遣远征队伍完成"
+    }
+  }
+}
