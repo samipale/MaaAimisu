@@ -27,35 +27,12 @@
     },
     "next": [
       "Login_GameStart",
-      "[JumpBack]Login_LoginBonus",
       "[JumpBack]Common_UIClose",
       "[JumpBack]Common_Skip",
       "[JumpBack]Common_UINo",
-      "[JumpBack]Login_NewCostume",
+      "[JumpBack]Common_TapTheScreen",
       "Login_ClickMenu"
     ]
-  },
-  "Login_LoginBonus": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "login/tap_the_screen.png"
-      }
-    },
-    "action": {
-      "type": "Click"
-    }
-  },
-  "Login_NewCostume": {
-    "recognition": {
-      "type": "OCR",
-      "param": {
-        "expected": "画面タップで次へ進みます"
-      }
-    },
-    "action": {
-      "type": "Click"
-    }
   },
   "Login_ClickMenu": {
     "recognition": {

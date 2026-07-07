@@ -88,5 +88,19 @@
     "action": {
       "type": "Click"
     }
+  },
+  "Common_TapTheScreen": {
+    "recognition": {
+      "type": "OCR",
+      "param": {
+        "expected": [
+          "画面タップで次へ進みます",
+          "画面をタップしてください"
+        ]
+      }
+    },
+    "action": {
+      "type": "Click"
+    }
   }
 }
