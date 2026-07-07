@@ -1,0 +1,8 @@
+{
+  "task": [
+    {
+      "name": "领取任务奖励",
+      "entry": "Mission_Entry"
+    }
+  ]
+}

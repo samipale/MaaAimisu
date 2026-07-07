@@ -1,0 +1,172 @@
+{
+  "Mission_Entry": {
+    "next": [
+      "Mission_MissionButton",
+      "[JumpBack]Common_BackToMenu"
+    ]
+  },
+  "Mission_MissionButton": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "mission/mission.png"
+      }
+    },
+    "next": [
+      "Mission_CheckExclamation_ClickMissionButton",
+      "Mission_NoReward"
+    ]
+  },
+  "Mission_CheckExclamation_ClickMissionButton": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "!.png",
+        "roi": "Mission_MissionButton",
+        "roi_offset": [
+          32,
+          -45,
+          4,
+          20
+        ]
+      }
+    },
+    "action": {
+      "type": "Click",
+      "target": "Mission_MissionButton"
+    },
+    "next": [
+      "Mission_WeeklyMission"
+    ]
+  },
+  "Mission_NoReward": {
+    "focus": {
+      "Node.Recognition.Succeeded": "没有任务奖励需要领取"
+    }
+  },
+  "Mission_WeeklyMission": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "mission/weekly_mission.png"
+      }
+    },
+    "next": [
+      "Mission_CheckWeeklyMissionExclamation",
+      "Mission_EventMission"
+    ]
+  },
+  "Mission_CheckWeeklyMissionExclamation": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "!.png",
+        "roi": "Mission_WeeklyMission",
+        "roi_offset": [
+          53,
+          -31,
+          13,
+          30
+        ]
+      }
+    },
+    "next": [
+      "Mission_ClaimWeeklyReward"
+    ]
+  },
+  "Mission_ClaimWeeklyReward": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "mission/claim_all.png"
+      }
+    },
+    "next": [
+      "Mission_WeeklyRewardUIClose"
+    ]
+  },
+  "Mission_WeeklyRewardUIClose": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": [
+          "close2.png"
+        ]
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "Mission_EventMission"
+    ]
+  },
+  "Mission_EventMission": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "mission/event_mission.png"
+      }
+    },
+    "next": [
+      "Mission_CheckEventMissionExclamation_ClickEventMission",
+      "Mission_NoEventReward"
+    ]
+  },
+  "Mission_NoEventReward": {
+    "focus": {
+      "Node.Recognition.Succeeded": "没有任务奖励需要领取"
+    }
+  },
+  "Mission_CheckEventMissionExclamation_ClickEventMission": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "!.png",
+        "roi": "Mission_EventMission",
+        "roi_offset": [
+          73,
+          -29,
+          -25,
+          29
+        ]
+      }
+    },
+    "action": {
+      "type": "Click",
+      "target": "Mission_EventMission"
+    },
+    "next": [
+      "Mission_ClaimEventReward"
+    ]
+  },
+  "Mission_ClaimEventReward": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "mission/claim_all.png",
+        "method": 10001,
+        "threshold": 0.8
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "Mission_EventRewardUIClose"
+    ]
+  },
+  "Mission_EventRewardUIClose": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": [
+          "close2.png"
+        ]
+      }
+    },
+    "action": {
+      "type": "Click"
+    }
+  }
+}
