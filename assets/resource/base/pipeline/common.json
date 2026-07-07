@@ -1,4 +1,32 @@
 {
+  "Common_BackToMenu": {
+    "next": [
+      "Common_MenuInterface",
+      "[JumpBack]Common_UIClose",
+      "[JumpBack]Common_UINo",
+      "[JumpBack]Common_ClickMenu"
+    ],
+    "max_hit": 10
+  },
+  "Common_MenuInterface": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "login/menu_interface.png"
+      }
+    }
+  },
+  "Common_ClickMenu": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "menu.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    }
+  },
   "Common_UIClose": {
     "recognition": {
       "type": "TemplateMatch",

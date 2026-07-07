@@ -1,11 +1,9 @@
 {
   "Academy_Entry": {
     "next": [
-      "Academy_AcademyButton"
-    ],
-    "focus": {
-      "Node.Recognition.Succeeded": "开始训练"
-    }
+      "Academy_AcademyButton",
+      "[JumpBack]Common_BackToMenu"
+    ]
   },
   "Academy_AcademyButton": {
     "recognition": {
