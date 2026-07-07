@@ -1,0 +1,8 @@
+{
+  "task": [
+    {
+      "name": "领取集章册奖励",
+      "entry": "StampBook_Entry"
+    }
+  ]
+}

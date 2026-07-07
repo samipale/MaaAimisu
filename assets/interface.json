@@ -47,6 +47,7 @@
         "tasks/expedition.json",
         "tasks/mission.json",
         "tasks/gift.json",
+        "tasks/stamp_book.json",
         "tasks/quest_battle.json"
     ]
 }
