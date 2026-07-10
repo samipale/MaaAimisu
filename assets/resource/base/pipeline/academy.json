@@ -37,7 +37,7 @@
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "reduce.png"
+        "template": "academy/reduce.png"
       }
     },
     "action": {

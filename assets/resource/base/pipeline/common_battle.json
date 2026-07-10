@@ -1,0 +1,316 @@
+{
+  "CommonBattle_StartQuest": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "common_battle/battle_start.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "[JumpBack]CommonBattle_Battling",
+      "CommonBattle_Result",
+      "[JumpBack]Common_ChatSkip",
+      "CommonBattle_Failed",
+      "CommonBattle_OutOfBP",
+      "[JumpBack]Common_UIRetry"
+    ]
+  },
+  "CommonBattle_SkipQuest": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "common_battle/skip.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "CommonBattle_AdjustSkipSettings"
+    ]
+  },
+  "CommonBattle_AdjustSkipSettings": {
+    "action": {
+      "type": "Custom",
+      "param": {
+        "custom_action": "adjust_settings_action"
+      }
+    },
+    "attach": {
+      "skip_mode": "multiply",
+      "max_skip_times": 9
+    },
+    "next": [
+      "CommonBattle_StartSkipping"
+    ],
+    "on_error": [
+      "CommonBattle_SkipQuest_AdjustError"
+    ]
+  },
+  "CommonBattle_ChooseSkipMode": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": [
+          "common_battle/mode_skip_1.png",
+          "common_battle/mode_skip_2.png"
+        ]
+      }
+    },
+    "action": {
+      "type": "Click"
+    }
+  },
+  "CommonBattle_ChooseMultiplyMode": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": [
+          "common_battle/mode_multiply_1.png",
+          "common_battle/mode_multiply_2.png"
+        ]
+      }
+    },
+    "action": {
+      "type": "Click"
+    }
+  },
+  "CommonBattle_SkipQuest_GetBasePosition": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "common_battle/increase.png"
+      }
+    }
+  },
+  "CommonBattle_SkipQuest_GetSkipCount": {
+    "recognition": {
+      "type": "OCR",
+      "param": {
+        "expected": "\\d",
+        "roi": "CommonBattle_SkipQuest_GetBasePosition",
+        "roi_offset": [
+          0,
+          40,
+          0,
+          25
+        ],
+        "only_rec": true
+      }
+    }
+  },
+  "CommonBattle_SkipMode_GetTotalBPCost": {
+    "recognition": {
+      "type": "OCR",
+      "param": {
+        "expected": "\\d+",
+        "roi": "CommonBattle_SkipQuest_GetBasePosition",
+        "roi_offset": [
+          200,
+          30,
+          10,
+          -3
+        ],
+        "only_rec": true
+      }
+    }
+  },
+  "CommonBattle_MultiplyMode_GetTotalBPCost": {
+    "recognition": {
+      "type": "OCR",
+      "param": {
+        "expected": "\\d+",
+        "roi": "CommonBattle_SkipQuest_GetBasePosition",
+        "roi_offset": [
+          210,
+          30,
+          10,
+          -3
+        ],
+        "only_rec": true
+      }
+    }
+  },
+  "CommonBattle_SkipMode_GetBP": {
+    "recognition": {
+      "type": "OCR",
+      "param": {
+        "expected": "\\d+",
+        "roi": "CommonBattle_SkipQuest_GetBasePosition",
+        "roi_offset": [
+          200,
+          73,
+          10,
+          -3
+        ],
+        "only_rec": true
+      }
+    }
+  },
+  "CommonBattle_MultiplyMode_GetBP": {
+    "recognition": {
+      "type": "OCR",
+      "param": {
+        "expected": "\\d+",
+        "roi": "CommonBattle_SkipQuest_GetBasePosition",
+        "roi_offset": [
+          210,
+          73,
+          10,
+          -3
+        ],
+        "only_rec": true
+      }
+    }
+  },
+  "CommonBattle_SkipMode_GetSkipPass": {
+    "recognition": {
+      "type": "OCR",
+      "param": {
+        "expected": "\\d+",
+        "roi": "CommonBattle_SkipQuest_GetBasePosition",
+        "roi_offset": [
+          487,
+          73,
+          10,
+          -3
+        ],
+        "only_rec": true
+      }
+    }
+  },
+  "CommonBattle_Increase": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "common_battle/increase.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    }
+  },
+  "CommonBattle_Reduce": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "common_battle/reduce.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    }
+  },
+  "CommonBattle_SkipQuest_IsOneTime": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "common_battle/1.png",
+        "roi": "CommonBattle_SkipQuest_GetBasePosition",
+        "roi_offset": [
+          0,
+          40,
+          0,
+          25
+        ]
+      }
+    }
+  },
+  "CommonBattle_SkipQuest_AdjustError": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "close2.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    }
+  },
+  "CommonBattle_StartSkipping": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "common_battle/start_skipping.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "[JumpBack]CommonBattle_Battling",
+      "CommonBattle_Result",
+      "[JumpBack]Common_ChatSkip",
+      "CommonBattle_Failed",
+      "CommonBattle_OutOfBP",
+      "[JumpBack]Common_UIRetry"
+    ]
+  },
+  "CommonBattle_Battling": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "common_battle/battling.png"
+      }
+    },
+    "post_delay": 5000
+  },
+  "CommonBattle_Failed": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "common_battle/battle_failed.png"
+      }
+    },
+    "focus": {
+      "Node.Recognition.Succeeded": "战斗失败"
+    }
+  },
+  "CommonBattle_OutOfBP": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "common_battle/BP_recover.png"
+      }
+    },
+    "focus": {
+      "Node.Recognition.Succeeded": "BP不足"
+    }
+  },
+  "CommonBattle_Result": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "common_battle/battle_result.png"
+      }
+    },
+    "next": [
+      "[JumpBack]Common_UIClose",
+      "CommonBattle_Result_Next",
+      "[JumpBack]CommonBattle_ClickResult"
+    ]
+  },
+  "CommonBattle_ClickResult": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "common_battle/battle_result.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "post_delay": 500
+  },
+  "CommonBattle_Result_Next": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "next.png"
+      }
+    }
+  }
+}
