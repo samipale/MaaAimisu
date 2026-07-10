@@ -17,6 +17,11 @@
       "Expedition_NotYetReturn"
     ]
   },
+  "Expedition_NotYetReturn": {
+    "focus": {
+      "Node.Recognition.Succeeded": "远征队伍未返回，任务完成"
+    }
+  },
   "Expedition_CheckExclamation_ClickExpeditionButton": {
     "recognition": {
       "type": "TemplateMatch",
@@ -39,13 +44,40 @@
     },
     "next": [
       "Expedition_Redeploy",
+      "Expedition_ViewReport",
       "[JumpBack]Common_UIClose"
     ]
   },
-  "Expedition_NotYetReturn": {
-    "focus": {
-      "Node.Recognition.Succeeded": "远征队伍未返回，任务完成"
-    }
+  "Expedition_ViewReport": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "expedition/view_report.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "Expedition_ViewReport_Next",
+      "[JumpBack]Common_UIClose"
+    ]
+  },
+  "Expedition_ViewReport_Next": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "next.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "Expedition_ExpeditionInterface",
+      "[JumpBack]Common_UIClose",
+      "Expedition_ViewReport_Next"
+    ]
   },
   "Expedition_Redeploy": {
     "recognition": {
