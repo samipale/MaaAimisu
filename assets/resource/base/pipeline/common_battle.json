@@ -277,12 +277,7 @@
       "param": {
         "template": "common_battle/battle_result.png"
       }
-    },
-    "next": [
-      "[JumpBack]Common_UIClose",
-      "CommonBattle_Result_Next",
-      "[JumpBack]CommonBattle_ClickResult"
-    ]
+    }
   },
   "CommonBattle_ClickResult": {
     "recognition": {

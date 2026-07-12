@@ -83,6 +83,9 @@
         "template": "mission/claim_all.png"
       }
     },
+    "action": {
+      "type": "Click"
+    },
     "next": [
       "Mission_WeeklyRewardUIClose"
     ]

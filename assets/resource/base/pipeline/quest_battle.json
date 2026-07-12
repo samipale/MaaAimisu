@@ -3,13 +3,13 @@
     "next": [
       "QuestBattle_QuestList"
     ],
-    "timeout": 5000
+    "timeout": 3000
   },
   "QuestBattle_QuestList": {
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "quest/battle_start.png"
+        "template": "common_battle/battle_start.png"
       }
     },
     "next": [
@@ -60,7 +60,10 @@
       }
     },
     "next": [
-      "QuestBattle_StartQuest"
+      "[JumpBack]CommonBattle_StartQuest",
+      "QuestBattle_Failed",
+      "QuestBattle_OutOfBP",
+      "QuestBattle_Result"
     ],
     "inverse": true
   },
@@ -120,7 +123,10 @@
       }
     },
     "next": [
-      "QuestBattle_StartQuest"
+      "[JumpBack]CommonBattle_StartQuest",
+      "QuestBattle_Failed",
+      "QuestBattle_OutOfBP",
+      "QuestBattle_Result"
     ]
   },
   "QuestBattle_QuestDone": {
@@ -128,39 +134,11 @@
       "Node.Recognition.Succeeded": "推图完成！"
     }
   },
-  "QuestBattle_StartQuest": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "quest/battle_start.png"
-      }
-    },
-    "action": {
-      "type": "Click"
-    },
-    "next": [
-      "[JumpBack]QuestBattle_Battling",
-      "QuestBattle_Result",
-      "[JumpBack]Common_ChatSkip",
-      "QuestBattle_Failed",
-      "QuestBattle_OutOfBP",
-      "[JumpBack]Common_UIRetry"
-    ]
-  },
-  "QuestBattle_Battling": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "quest/battling.png"
-      }
-    },
-    "post_delay": 5000
-  },
   "QuestBattle_Failed": {
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "quest/battle_failed.png"
+        "template": "common_battle/battle_failed.png"
       }
     },
     "focus": {
@@ -171,7 +149,7 @@
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "quest/BP_recover.png"
+        "template": "common_battle/BP_recover.png"
       }
     },
     "focus": {
@@ -182,24 +160,14 @@
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "quest/battle_result.png"
+        "template": "common_battle/battle_result.png"
       }
     },
     "next": [
+      "QuestBattle_Result_Next",
       "[JumpBack]Common_UIClose",
-      "QuestBattle_Result_Next"
+      "[JumpBack]CommonBattle_ClickResult"
     ]
-  },
-  "QuestBattle_BonusQuest": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "quest/bonus_quest_activate.png"
-      }
-    },
-    "action": {
-      "type": "StopTask"
-    }
   },
   "QuestBattle_Result_Next": {
     "recognition": {
