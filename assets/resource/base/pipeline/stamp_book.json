@@ -38,315 +38,40 @@
       }
     },
     "next": [
-      "StampBook_BookMission"
+      "StampBook_Interface"
     ]
   },
-  "StampBook_NoReward": {
-    "focus": {
-      "Node.Recognition.Succeeded": "没有集章册奖励需要领取"
-    }
-  },
-  "StampBook_BookMission": {
+  "StampBook_Interface": {
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "stamp_book/book_mission.png"
+        "template": "stamp_book/interface.png"
       }
     },
     "next": [
-      "StampBook_BookMissionExclamation_ClickBookMission",
-      "StampBook_ClaimBookReward"
-    ]
-  },
-  "StampBook_BookMissionExclamation_ClickBookMission": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "stamp_book/book_exclamation.png",
-        "roi": "StampBook_BookMission",
-        "roi_offset": [
-          73,
-          -29,
-          -25,
-          29
-        ]
-      }
-    },
-    "action": {
-      "type": "Click",
-      "param": {
-        "target": "StampBook_BookMission"
-      }
-    },
-    "next": [
-      "StampBook_BookMission_WaitFreezes"
-    ]
-  },
-  "StampBook_BookMission_WaitFreezes": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "stamp_book/daily_mission.png"
-      }
-    },
-    "next": [
-      "StampBook_DailyMission"
-    ],
-    "post_wait_freezes": 200
-  },
-  "StampBook_DailyMission": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "stamp_book/daily_mission.png"
-      }
-    },
-    "next": [
-      "StampBook_DailyMissionExclamation",
-      "StampBook_WeeklyMission"
-    ]
-  },
-  "StampBook_DailyMissionExclamation": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "stamp_book/mission_list_exclamation.png",
-        "roi": "StampBook_DailyMission",
-        "roi_offset": [
-          -35,
-          -15,
-          -100,
-          0
-        ]
-      }
-    },
-    "next": [
-      "StampBook_ClaimDailyReward"
-    ]
-  },
-  "StampBook_ClaimDailyReward": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "stamp_book/claim.png",
-        "method": 10001,
-        "threshold": 0.8
-      }
-    },
-    "action": {
-      "type": "Click"
-    },
-    "next": [
-      "StampBook_ClaimDailyReward_UIClose"
-    ]
-  },
-  "StampBook_ClaimDailyReward_UIClose": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": [
-          "close2.png"
-        ]
-      }
-    },
-    "action": {
-      "type": "Click"
-    },
-    "next": [
-      "StampBook_WeeklyMission"
-    ]
-  },
-  "StampBook_WeeklyMission": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "stamp_book/weekly_mission.png",
-        "method": 10001,
-        "threshold": 0.97
-      }
-    },
-    "next": [
-      "StampBook_WeeklyMissionExclamation_ClickWeeklyMission",
-      "StampBook_SeasonMission"
-    ]
-  },
-  "StampBook_WeeklyMissionExclamation_ClickWeeklyMission": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "stamp_book/mission_list_exclamation.png",
-        "roi": "StampBook_WeeklyMission",
-        "roi_offset": [
-          -35,
-          -15,
-          -100,
-          0
-        ]
-      }
-    },
-    "action": {
-      "type": "Click",
-      "param": {
-        "target": "StampBook_WeeklyMission"
-      }
-    },
-    "next": [
-      "StampBook_ClaimWeeklyReward"
-    ]
-  },
-  "StampBook_ClaimWeeklyReward": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "stamp_book/claim.png",
-        "method": 10001,
-        "threshold": 0.8
-      }
-    },
-    "action": {
-      "type": "Click"
-    },
-    "next": [
-      "StampBook_ClaimWeeklyReward_UIClose"
-    ]
-  },
-  "StampBook_ClaimWeeklyReward_UIClose": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": [
-          "close2.png"
-        ]
-      }
-    },
-    "action": {
-      "type": "Click"
-    },
-    "next": [
-      "StampBook_SeasonMission"
-    ]
-  },
-  "StampBook_SeasonMission": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "stamp_book/season_mission.png",
-        "method": 10001,
-        "threshold": 0.97
-      }
-    },
-    "next": [
-      "StampBook_SeasonMissionExclamation_ClickSeasonMission",
-      "StampBook_BookReward"
-    ]
-  },
-  "StampBook_SeasonMissionExclamation_ClickSeasonMission": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "stamp_book/mission_list_exclamation.png",
-        "roi": "StampBook_SeasonMission",
-        "roi_offset": [
-          -35,
-          -15,
-          -100,
-          0
-        ]
-      }
-    },
-    "action": {
-      "type": "Click",
-      "param": {
-        "target": "StampBook_SeasonMission"
-      }
-    },
-    "next": [
-      "StampBook_ClaimSeasonReward"
-    ]
-  },
-  "StampBook_ClaimSeasonReward": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "stamp_book/claim.png",
-        "method": 10001,
-        "threshold": 0.8
-      }
-    },
-    "action": {
-      "type": "Click"
-    },
-    "next": [
-      "StampBook_ClaimSeasonReward_UIClose"
-    ]
-  },
-  "StampBook_ClaimSeasonReward_UIClose": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": [
-          "close2.png"
-        ]
-      }
-    },
-    "action": {
-      "type": "Click"
-    },
-    "next": [
-      "StampBook_BookReward"
-    ]
-  },
-  "StampBook_BookReward": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "stamp_book/book_reward.png"
-      }
-    },
-    "next": [
-      "StampBook_CheckBookRewardExclamation_ClickBookReward",
+      "[JumpBack]StampBook_Claim",
+      "[JumpBack]StampBook_ClickMissionExclamation",
+      "[JumpBack]StampBook_ClickBookExclamation",
       "StampBook_NoReward"
     ]
   },
-  "StampBook_CheckBookRewardExclamation_ClickBookReward": {
+  "StampBook_Claim": {
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "stamp_book/book_exclamation.png",
-        "roi": "StampBook_BookReward",
-        "roi_offset": [
-          63,
-          -29,
-          -25,
-          29
-        ]
-      }
-    },
-    "action": {
-      "type": "Click",
-      "param": {
-        "target": "StampBook_BookReward"
-      }
-    },
-    "next": [
-      "StampBook_ClaimBookReward"
-    ]
-  },
-  "StampBook_ClaimBookReward": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "stamp_book/claim.png"
+        "template": "stamp_book/claim.png",
+        "method": 10001,
+        "threshold": 0.8
       }
     },
     "action": {
       "type": "Click"
     },
     "next": [
-      "StampBook_ClaimBookReward_UIClose"
+      "StampBook_UIClose"
     ]
   },
-  "StampBook_ClaimBookReward_UIClose": {
+  "StampBook_UIClose": {
     "recognition": {
       "type": "TemplateMatch",
       "param": {
@@ -357,6 +82,43 @@
     },
     "action": {
       "type": "Click"
+    },
+    "post_wait_freezes": 200
+  },
+  "StampBook_ClickMissionExclamation": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "stamp_book/mission_list_exclamation.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    }
+  },
+  "StampBook_ClickBookExclamation": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "stamp_book/book_exclamation.png",
+        "index": -1
+      }
+    },
+    "action": {
+      "type": "Click",
+      "param": {
+        "target_offset": [
+          -20,
+          20,
+          0,
+          0
+        ]
+      }
+    }
+  },
+  "StampBook_NoReward": {
+    "focus": {
+      "Node.Recognition.Succeeded": "已领取集章册奖励"
     }
   }
 }
