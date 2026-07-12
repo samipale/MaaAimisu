@@ -16,8 +16,21 @@
       "type": "Click"
     },
     "next": [
+      "Academy_AcademyInterface_WaitFreezes"
+    ],
+    "post_wait_freezes": 100
+  },
+  "Academy_AcademyInterface_WaitFreezes": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "academy/start_training.png"
+      }
+    },
+    "next": [
       "Academy_StartTraining"
-    ]
+    ],
+    "post_wait_freezes": 100
   },
   "Academy_StartTraining": {
     "recognition": {
