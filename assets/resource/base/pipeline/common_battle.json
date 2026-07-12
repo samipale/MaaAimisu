@@ -220,15 +220,6 @@
     }
   },
   "CommonBattle_SkipQuest_AdjustError": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "close2.png"
-      }
-    },
-    "action": {
-      "type": "Click"
-    }
   },
   "CommonBattle_StartSkipping": {
     "recognition": {
@@ -310,6 +301,14 @@
       "type": "TemplateMatch",
       "param": {
         "template": "next.png"
+      }
+    }
+  },
+  "CommonBattle_QuestList": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "common_battle/battle_start.png"
       }
     }
   }

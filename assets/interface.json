@@ -43,6 +43,7 @@
     "task": [],
     "import": [
         "tasks/login.json",
+        "tasks/skip_event.json",
         "tasks/academy.json",
         "tasks/expedition.json",
         "tasks/mission.json",

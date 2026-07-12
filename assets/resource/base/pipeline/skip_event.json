@@ -1,0 +1,153 @@
+{
+  "SkipEvent_Entry": {
+    "next": [
+      "SkipEvent_Depart",
+      "[JumpBack]Common_BackToMenu"
+    ]
+  },
+  "SkipEvent_Depart": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "quest/depart.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "SkipEvent_Depart_WaitFreezes"
+    ]
+  },
+  "SkipEvent_Depart_WaitFreezes": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "quest/main_story.png"
+      }
+    },
+    "next": [
+      "SkipEvent_EventButton"
+    ],
+    "post_wait_freezes": 100
+  },
+  "SkipEvent_EventButton": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "quest/event.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "SkipEvent_EventButton_WaitFreezes"
+    ]
+  },
+  "SkipEvent_EventButton_WaitFreezes": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "quest/event/before.png"
+      }
+    },
+    "next": [
+      "SkipEvent_ChooseEvent"
+    ],
+    "post_wait_freezes": 100
+  },
+  "SkipEvent_ChooseEvent": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "quest/event/before.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "SkipEvent_QuestList"
+    ]
+  },
+  "SkipEvent_QuestList": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "common_battle/battle_start.png"
+      }
+    },
+    "next": [
+      "SkipEvent_ChooseClearedQuest",
+      "SkipEvent_NoClearedQuest"
+    ]
+  },
+  "SkipEvent_NoClearedQuest": {
+    "focus": {
+      "Node.Recognition.Succeeded": "没有已通关的任务，无法扫荡，任务中止"
+    }
+  },
+  "SkipEvent_ChooseClearedQuest": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "quest/quest_clear.png",
+        "order_by": "Vertical"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "[JumpBack]SkipEvent_Result",
+      "SkipEvent_AdjustFailed",
+      "[JumpBack]CommonBattle_SkipQuest",
+      "SkipEvent_BattleFailed",
+      "SkipEvent_QuestList"
+      ]
+  },
+  "SkipEvent_BattleFailed": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "common_battle/failed_to_quest_list.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Succeeded": "战斗失败，扫荡完成！"
+    }
+  },
+  "SkipEvent_AdjustFailed": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "close2.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Succeeded": "扫荡资源不足，扫荡完成！"
+    }
+  },
+  "SkipEvent_Result": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "common_battle/battle_result.png"
+      }
+    },
+    "next": [
+      "CommonBattle_QuestList",
+      "[JumpBack]Common_UIClose",
+      "[JumpBack]CommonBattle_Result_Next",
+      "[JumpBack]Common_UIRetry",
+      "[JumpBack]CommonBattle_ClickResult"
+    ]
+  }
+}
