@@ -2,7 +2,48 @@
   "task": [
     {
       "name": "登录",
-      "entry": "Login_Entry"
+      "entry": "Login_Entry",
+      "option": [
+        "登录_安卓端版本"
+      ]
     }
-  ]
+  ],
+  "option": {
+    "登录_安卓端版本": {
+      "type": "select",
+      "label": "安卓端版本",
+      "description": "Win端不用选择",
+      "default_case": "登录_安卓端版本_一般版",
+      "cases": [
+        {
+          "name": "登录_安卓端版本_一般版",
+          "label": "一般版",
+          "pipeline_override": {
+            "Login_StartApp": {
+              "action": {
+                "type": "StartApp",
+                "param": {
+                  "package": "com.dmm.games.irismysteria"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "登录_安卓端版本_R版",
+          "label": "R版",
+          "pipeline_override": {
+            "Login_StartApp": {
+              "action": {
+                "type": "StartApp",
+                "param": {
+                  "package": "jp.co.dmm.dmmgames.imys_r"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
 }
