@@ -297,6 +297,9 @@
       "param": {
         "template": "next.png"
       }
+    },
+    "action": {
+      "type": "Click"
     }
   },
   "CommonBattle_QuestList": {
