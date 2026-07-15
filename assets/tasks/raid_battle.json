@@ -1,0 +1,8 @@
+{
+  "task": [
+    {
+      "name": "自动副本活动",
+      "entry": "RaidBattle_Entry"
+    }
+  ]
+}

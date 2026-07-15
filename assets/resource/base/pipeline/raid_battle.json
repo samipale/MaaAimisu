@@ -1,0 +1,23 @@
+{
+  "RaidBattle_Entry": {
+    "next": [
+      "RaidBattle_RaidList"
+    ],
+    "timeout": 3000
+  },
+  "RaidBattle_RaidList": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "raid/attack.png"
+      }
+    },
+    "next": [
+      "CommonBattle_OutOfBP",
+      "CommonBattle_Failed",
+      "[JumpBack]CommonBattle_StartRaid",
+      "[JumpBack]CommonBattle_Result_BackToRaidList"
+    ]
+  }
+}
+

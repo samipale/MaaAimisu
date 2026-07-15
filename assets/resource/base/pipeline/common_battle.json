@@ -18,6 +18,37 @@
       "[JumpBack]Common_UIRetry"
     ]
   },
+  "CommonBattle_StartRaid": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "raid/attack.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "CommonBattle_Connecting",
+      "CommonBattle_OutOfBP",
+      "CommonBattle_StartRaid"
+    ]
+  },
+  "CommonBattle_Connecting": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "connecting.png"
+      }
+    },
+    "next": [
+      "[JumpBack]CommonBattle_Battling",
+      "CommonBattle_Result",
+      "[JumpBack]Common_ChatSkip",
+      "CommonBattle_Failed",
+      "[JumpBack]Common_UIRetry"
+    ]
+  },
   "CommonBattle_SkipQuest": {
     "recognition": {
       "type": "TemplateMatch",
@@ -98,6 +129,7 @@
           0,
           25
         ],
+        "threshold": 0.6,
         "only_rec": true
       }
     }
@@ -114,6 +146,7 @@
           10,
           -3
         ],
+        "threshold": 0.6,
         "only_rec": true
       }
     }
@@ -130,6 +163,7 @@
           10,
           -3
         ],
+        "threshold": 0.6,
         "only_rec": true
       }
     }
@@ -146,6 +180,7 @@
           10,
           -3
         ],
+        "threshold": 0.6,
         "only_rec": true
       }
     }
@@ -162,6 +197,7 @@
           10,
           -3
         ],
+        "threshold": 0.6,
         "only_rec": true
       }
     }
@@ -178,6 +214,7 @@
           10,
           -3
         ],
+        "threshold": 0.6,
         "only_rec": true
       }
     }
@@ -309,5 +346,43 @@
         "template": "common_battle/battle_start.png"
       }
     }
+  },
+  "CommonBattle_RaidList": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "raid/attack.png"
+      }
+    }
+  },
+  "CommonBattle_Result_BackToQuestList": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "common_battle/battle_result.png"
+      }
+    },
+    "next": [
+      "CommonBattle_QuestList",
+      "[JumpBack]Common_UIClose",
+      "[JumpBack]CommonBattle_Result_Next",
+      "[JumpBack]Common_UIRetry",
+      "[JumpBack]CommonBattle_ClickResult"
+    ]
+  },
+  "CommonBattle_Result_BackToRaidList": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "common_battle/battle_result.png"
+      }
+    },
+    "next": [
+      "CommonBattle_RaidList",
+      "[JumpBack]Common_UIClose",
+      "[JumpBack]CommonBattle_Result_Next",
+      "[JumpBack]Common_UIRetry",
+      "[JumpBack]CommonBattle_ClickResult"
+    ]
   }
 }
