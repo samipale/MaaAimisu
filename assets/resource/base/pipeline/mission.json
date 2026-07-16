@@ -38,7 +38,7 @@
       }
     },
     "next": [
-      "Mission_WeeklyMission"
+      "Mission_MissionInterface"
     ]
   },
   "Mission_NoReward": {
@@ -46,108 +46,20 @@
       "Node.Recognition.Succeeded": "没有任务奖励需要领取"
     }
   },
-  "Mission_WeeklyMission": {
+  "Mission_MissionInterface": {
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "mission/weekly_mission.png"
+        "template": "mission/achievement.png"
       }
     },
     "next": [
-      "Mission_CheckWeeklyMissionExclamation",
-      "Mission_EventMission"
+      "Mission_Claim",
+      "[JumpBack]Mission_ClickExclamation",
+      "Mission_Done"
     ]
   },
-  "Mission_CheckWeeklyMissionExclamation": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "!.png",
-        "roi": "Mission_WeeklyMission",
-        "roi_offset": [
-          53,
-          -31,
-          13,
-          30
-        ]
-      }
-    },
-    "next": [
-      "Mission_ClaimWeeklyReward"
-    ]
-  },
-  "Mission_ClaimWeeklyReward": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "mission/claim_all.png"
-      }
-    },
-    "action": {
-      "type": "Click"
-    },
-    "next": [
-      "Mission_WeeklyRewardUIClose"
-    ]
-  },
-  "Mission_WeeklyRewardUIClose": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": [
-          "close2.png"
-        ]
-      }
-    },
-    "action": {
-      "type": "Click"
-    },
-    "next": [
-      "Mission_EventMission"
-    ]
-  },
-  "Mission_EventMission": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "mission/event_mission.png"
-      }
-    },
-    "next": [
-      "Mission_CheckEventMissionExclamation_ClickEventMission",
-      "Mission_NoEventReward"
-    ]
-  },
-  "Mission_NoEventReward": {
-    "focus": {
-      "Node.Recognition.Succeeded": "没有任务奖励需要领取"
-    }
-  },
-  "Mission_CheckEventMissionExclamation_ClickEventMission": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "!.png",
-        "roi": "Mission_EventMission",
-        "roi_offset": [
-          73,
-          -29,
-          -25,
-          29
-        ]
-      }
-    },
-    "action": {
-      "type": "Click",
-      "param": {
-        "target": "Mission_EventMission"
-      }
-    },
-    "next": [
-      "Mission_ClaimEventReward"
-    ]
-  },
-  "Mission_ClaimEventReward": {
+  "Mission_Claim": {
     "recognition": {
       "type": "TemplateMatch",
       "param": {
@@ -160,10 +72,10 @@
       "type": "Click"
     },
     "next": [
-      "Mission_EventRewardUIClose"
+      "Mission_Claim_UIClose"
     ]
   },
-  "Mission_EventRewardUIClose": {
+  "Mission_Claim_UIClose": {
     "recognition": {
       "type": "TemplateMatch",
       "param": {
@@ -174,6 +86,32 @@
     },
     "action": {
       "type": "Click"
+    },
+    "next": [
+      "Mission_MissionInterface"
+    ]
+  },
+  "Mission_ClickExclamation": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "!.png",
+        "roi": "Mission_MissionInterface",
+        "roi_offset": [
+          -200,
+          -25,
+          600,
+          30
+        ]
+      }
+    },
+    "action": {
+      "type": "Click"
+    }
+  },
+  "Mission_Done": {
+    "focus": {
+      "Node.Recognition.Succeeded": "已领取任务奖励"
     }
   }
 }
