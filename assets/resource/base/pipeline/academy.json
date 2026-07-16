@@ -88,6 +88,7 @@
       "type": "Click"
     },
     "next": [
+      "[JumpBack]Common_UIClose",
       "Academy_Next",
       "Academy_AcademyInterface",
       "[JumpBack]Common_UIRetry"
