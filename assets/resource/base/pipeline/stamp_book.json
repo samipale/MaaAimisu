@@ -49,10 +49,11 @@
       }
     },
     "next": [
+      "[JumpBack]Common_UIClose",
       "[JumpBack]StampBook_Claim",
       "[JumpBack]StampBook_ClickMissionExclamation",
       "[JumpBack]StampBook_ClickBookExclamation",
-      "StampBook_NoReward"
+      "StampBook_Done"
     ]
   },
   "StampBook_Claim": {
@@ -66,24 +67,7 @@
     },
     "action": {
       "type": "Click"
-    },
-    "next": [
-      "StampBook_UIClose"
-    ]
-  },
-  "StampBook_UIClose": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": [
-          "close2.png"
-        ]
-      }
-    },
-    "action": {
-      "type": "Click"
-    },
-    "post_wait_freezes": 200
+    }
   },
   "StampBook_ClickMissionExclamation": {
     "recognition": {
@@ -117,6 +101,11 @@
     }
   },
   "StampBook_NoReward": {
+    "focus": {
+      "Node.Recognition.Succeeded": "没有集章册奖励需要领取"
+    }
+  },
+  "StampBook_Done": {
     "focus": {
       "Node.Recognition.Succeeded": "已领取集章册奖励"
     }
