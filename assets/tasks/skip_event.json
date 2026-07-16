@@ -1,7 +1,7 @@
 {
   "task": [
     {
-      "name": "活动扫荡",
+      "name": "普通活动扫荡",
       "entry": "SkipEvent_Entry"
     }
   ]
