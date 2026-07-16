@@ -35,7 +35,7 @@
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "quest/event.png"
+        "template": "quest/event/event_quest.png"
       }
     },
     "action": {

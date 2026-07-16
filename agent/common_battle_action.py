@@ -22,8 +22,13 @@ class AdjustSettingsAction(CustomAction):
         # 点击对应模式
         if skip_mode == "skip":
             context.run_task("CommonBattle_ChooseSkipMode")
-        else:
+        elif skip_mode == "raid":
+            pass
+        elif skip_mode == "multiply":
             context.run_task("CommonBattle_ChooseMultiplyMode")
+        else:
+            print(f"skip_mode {skip_mode} not supported")
+            return False
 
         # 从屏幕识别中获得基础数据
         image = context.tasker.controller.post_screencap().wait().get()
@@ -54,7 +59,7 @@ class AdjustSettingsAction(CustomAction):
         while adjust_count != 0:
             if adjust_count > 0:
                 context.run_task("CommonBattle_Increase")
-                if self._is_one_time(context):
+                if self._is_one_time(context, skip_mode):
                     adjust_count = -1 # 点增加1次结果回到1次，所以需要减少1次然后直接跳出循环
                 else:
                     adjust_count -= 1
@@ -87,6 +92,8 @@ class AdjustSettingsAction(CustomAction):
     def _get_cached_total_bp_cost(context: Context, image: np.ndarray, skip_mode: str) -> int:
         if skip_mode == "skip":
             reco_result = context.run_recognition("CommonBattle_SkipMode_GetTotalBPCost", image)
+        elif skip_mode == "raid":
+            reco_result = context.run_recognition("CommonBattle_RaidMode_GetTotalBPCost", image)
         else:
             reco_result = context.run_recognition("CommonBattle_MultiplyMode_GetTotalBPCost", image)
         if reco_result:
@@ -97,6 +104,8 @@ class AdjustSettingsAction(CustomAction):
     def _get_current_bp(context: Context, image: np.ndarray, skip_mode: str) -> int:
         if skip_mode == "skip":
             reco_result = context.run_recognition("CommonBattle_SkipMode_GetBP", image)
+        elif skip_mode == "raid":
+            reco_result = context.run_recognition("CommonBattle_RaidMode_GetBP", image)
         else:
             reco_result = context.run_recognition("CommonBattle_MultiplyMode_GetBP", image)
         if reco_result:
@@ -111,9 +120,12 @@ class AdjustSettingsAction(CustomAction):
         return 0
 
     @staticmethod
-    def _is_one_time(context: Context) -> bool:
+    def _is_one_time(context: Context, skip_mode: str) -> bool:
         image = context.tasker.controller.post_screencap().wait().get()
-        reco_result = context.run_recognition("CommonBattle_SkipQuest_IsOneTime", image)
+        if skip_mode == "raid":
+            reco_result = context.run_recognition("CommonBattle_RaidQuest_IsOneTime", image)
+        else:
+            reco_result = context.run_recognition("CommonBattle_SkipQuest_IsOneTime", image)
         if reco_result.hit:
             return True
         return False

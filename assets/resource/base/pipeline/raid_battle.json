@@ -13,11 +13,28 @@
       }
     },
     "next": [
+      "RaidBattle_AdjustFailed",
       "CommonBattle_OutOfBP",
-      "CommonBattle_Failed",
-      "[JumpBack]CommonBattle_StartRaid",
+      "[JumpBack]CommonBattle_RaidQuest",
       "[JumpBack]CommonBattle_Result_BackToRaidList"
     ]
+  },
+  "RaidBattle_AdjustFailed": {
+    "recognition": {
+      "type": "And",
+      "param": {
+        "all_of": [
+          "Common_UIClose",
+          "CommonBattle_RaidQuest_AdjustInterface"
+        ]
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Succeeded": "BP不足，团队战活动完成！"
+    }
   }
 }
 

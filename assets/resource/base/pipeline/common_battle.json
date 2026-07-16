@@ -3,7 +3,7 @@
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "common_battle/battle_start.png"
+        "template": "quest/battle_start.png"
       }
     },
     "action": {
@@ -49,11 +49,78 @@
       "[JumpBack]Common_UIRetry"
     ]
   },
+  "CommonBattle_RaidQuest": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "raid/damage_point.png"
+      }
+    },
+    "action": {
+      "type": "Click",
+      "param": {
+        "target_offset": [
+          0,
+          50,
+          0,
+          0
+        ]
+      }
+    },
+    "next": [
+      "CommonBattle_RaidQuest_AdjustInterface",
+      "CommonBattle_RaidQuest"
+    ]
+  },
+  "CommonBattle_RaidQuest_AdjustInterface": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "raid/multiply_confirm.png"
+      }
+    },
+    "next": [
+      "CommonBattle_AdjustRaidSettings"
+    ]
+  },
+  "CommonBattle_AdjustRaidSettings": {
+    "action": {
+      "type": "Custom",
+      "param": {
+        "custom_action": "adjust_settings_action"
+      }
+    },
+    "attach": {
+      "skip_mode": "raid",
+      "max_skip_times": 9
+    },
+    "next": [
+      "CommonBattle_AdjustRaidSettings_StartRaid"
+    ],
+    "on_error": [
+      "CommonBattle_AdjustError"
+    ]
+  },
+  "CommonBattle_AdjustRaidSettings_StartRaid": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "raid/adjust_attack.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "CommonBattle_Connecting",
+      "CommonBattle_OutOfBP"
+    ]
+  },
   "CommonBattle_SkipQuest": {
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "common_battle/skip.png"
+        "template": "quest/skip.png"
       }
     },
     "action": {
@@ -78,7 +145,7 @@
       "CommonBattle_StartSkipping"
     ],
     "on_error": [
-      "CommonBattle_SkipQuest_AdjustError"
+      "CommonBattle_AdjustError"
     ]
   },
   "CommonBattle_ChooseSkipMode": {
@@ -86,8 +153,8 @@
       "type": "TemplateMatch",
       "param": {
         "template": [
-          "common_battle/mode_skip_1.png",
-          "common_battle/mode_skip_2.png"
+          "quest/mode_skip_1.png",
+          "quest/mode_skip_2.png"
         ]
       }
     },
@@ -100,8 +167,8 @@
       "type": "TemplateMatch",
       "param": {
         "template": [
-          "common_battle/mode_multiply_1.png",
-          "common_battle/mode_multiply_2.png"
+          "quest/mode_multiply_1.png",
+          "quest/mode_multiply_2.png"
         ]
       }
     },
@@ -113,7 +180,10 @@
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "common_battle/increase.png"
+        "template": [
+          "quest/increase.png",
+          "raid/increase.png"
+        ]
       }
     }
   },
@@ -168,6 +238,23 @@
       }
     }
   },
+  "CommonBattle_RaidMode_GetTotalBPCost": {
+    "recognition": {
+      "type": "OCR",
+      "param": {
+        "expected": "\\d+",
+        "roi": "CommonBattle_SkipQuest_GetBasePosition",
+        "roi_offset": [
+          324,
+          41,
+          10,
+          -3
+        ],
+        "threshold": 0.6,
+        "only_rec": true
+      }
+    }
+  },
   "CommonBattle_SkipMode_GetBP": {
     "recognition": {
       "type": "OCR",
@@ -202,6 +289,23 @@
       }
     }
   },
+  "CommonBattle_RaidMode_GetBP": {
+    "recognition": {
+      "type": "OCR",
+      "param": {
+        "expected": "\\d+",
+        "roi": "CommonBattle_SkipQuest_GetBasePosition",
+        "roi_offset": [
+          324,
+          97,
+          10,
+          -3
+        ],
+        "threshold": 0.6,
+        "only_rec": true
+      }
+    }
+  },
   "CommonBattle_SkipMode_GetSkipPass": {
     "recognition": {
       "type": "OCR",
@@ -223,7 +327,10 @@
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "common_battle/increase.png"
+        "template": [
+          "quest/increase.png",
+          "raid/increase.png"
+        ]
       }
     },
     "action": {
@@ -234,7 +341,10 @@
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "common_battle/reduce.png"
+        "template": [
+          "quest/reduce.png",
+          "raid/reduce.png"
+        ]
       }
     },
     "action": {
@@ -245,7 +355,7 @@
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "common_battle/1.png",
+        "template": "quest/1.png",
         "roi": "CommonBattle_SkipQuest_GetBasePosition",
         "roi_offset": [
           0,
@@ -256,13 +366,28 @@
       }
     }
   },
-  "CommonBattle_SkipQuest_AdjustError": {
+  "CommonBattle_RaidQuest_IsOneTime": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "raid/1.png",
+        "roi": "CommonBattle_SkipQuest_GetBasePosition",
+        "roi_offset": [
+          0,
+          45,
+          0,
+          35
+        ]
+      }
+    }
+  },
+  "CommonBattle_AdjustError": {
   },
   "CommonBattle_StartSkipping": {
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "common_battle/start_skipping.png"
+        "template": "quest/start_skipping.png"
       }
     },
     "action": {
@@ -281,7 +406,7 @@
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "common_battle/battling.png"
+        "template": "quest/battling.png"
       }
     },
     "post_delay": 5000
@@ -290,7 +415,7 @@
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "common_battle/battle_failed.png"
+        "template": "quest/battle_failed.png"
       }
     },
     "focus": {
@@ -301,7 +426,7 @@
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "common_battle/BP_recover.png"
+        "template": "quest/BP_recover.png"
       }
     },
     "focus": {
@@ -312,7 +437,7 @@
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "common_battle/battle_result.png"
+        "template": "quest/battle_result.png"
       }
     }
   },
@@ -320,7 +445,7 @@
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "common_battle/battle_result.png"
+        "template": "quest/battle_result.png"
       }
     },
     "action": {
@@ -343,7 +468,7 @@
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "common_battle/battle_start.png"
+        "template": "quest/battle_start.png"
       }
     }
   },
@@ -359,7 +484,7 @@
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "common_battle/battle_result.png"
+        "template": "quest/battle_result.png"
       }
     },
     "next": [
@@ -374,7 +499,7 @@
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "common_battle/battle_result.png"
+        "template": "quest/battle_result.png"
       }
     },
     "next": [
