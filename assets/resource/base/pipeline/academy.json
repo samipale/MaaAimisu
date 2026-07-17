@@ -43,8 +43,23 @@
       "type": "Click"
     },
     "next": [
-      "Academy_ReduceTime"
+      "Academy_ReduceTime",
+      "Academy_NoAP"
     ]
+  },
+  "Academy_NoAP": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "academy/AP_recover.png"
+      }
+    },
+    "next": [
+      "Common_UIClose"
+    ],
+    "focus": {
+      "Node.Recognition.Succeeded": "AP不足，无法完成训练"
+    }
   },
   "Academy_ReduceTime": {
     "recognition": {
