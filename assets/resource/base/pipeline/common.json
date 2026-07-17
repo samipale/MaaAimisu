@@ -90,6 +90,17 @@
       "type": "Click"
     }
   },
+  "Common_NextPage": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "quest/next_page.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    }
+  },
   "Common_TapTheScreen": {
     "recognition": {
       "type": "OCR",

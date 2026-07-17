@@ -1,81 +1,15 @@
 {
   "SkipEvent_Entry": {
     "next": [
-      "SkipEvent_Depart",
-      "[JumpBack]Common_BackToMenu"
+      "SkipEvent_DifficultyList",
+      "[JumpBack]CommonEvent_GoToDifficultyList"
     ]
   },
-  "SkipEvent_Depart": {
+  "SkipEvent_DifficultyList": {
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "quest/depart.png"
-      }
-    },
-    "action": {
-      "type": "Click"
-    },
-    "next": [
-      "SkipEvent_Depart_WaitFreezes"
-    ]
-  },
-  "SkipEvent_Depart_WaitFreezes": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "quest/main_story.png"
-      }
-    },
-    "next": [
-      "SkipEvent_EventButton"
-    ],
-    "post_wait_freezes": 100
-  },
-  "SkipEvent_EventButton": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "quest/event/event_quest.png"
-      }
-    },
-    "action": {
-      "type": "Click"
-    },
-    "next": [
-      "SkipEvent_EventButton_WaitFreezes"
-    ]
-  },
-  "SkipEvent_EventButton_WaitFreezes": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "quest/event/before.png"
-      }
-    },
-    "next": [
-      "SkipEvent_ChooseEvent"
-    ],
-    "post_wait_freezes": 100
-  },
-  "SkipEvent_ChooseEvent": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "quest/event/before.png"
-      }
-    },
-    "action": {
-      "type": "Click"
-    },
-    "next": [
-      "SkipEvent_QuestList"
-    ]
-  },
-  "SkipEvent_QuestList": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "common_battle/battle_start.png"
+        "template": "quest/battle_start.png"
       }
     },
     "next": [
@@ -104,14 +38,14 @@
       "SkipEvent_AdjustFailed",
       "[JumpBack]CommonBattle_SkipQuest",
       "SkipEvent_BattleFailed",
-      "SkipEvent_QuestList"
+      "SkipEvent_DifficultyList"
       ]
   },
   "SkipEvent_BattleFailed": {
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "common_battle/failed_to_quest_list.png"
+        "template": "quest/failed_to_quest_list.png"
       }
     },
     "action": {
@@ -139,7 +73,7 @@
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "common_battle/battle_result.png"
+        "template": "quest/battle_result.png"
       }
     },
     "next": [

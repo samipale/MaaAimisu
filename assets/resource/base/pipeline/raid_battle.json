@@ -1,7 +1,8 @@
 {
   "RaidBattle_Entry": {
     "next": [
-      "RaidBattle_RaidList"
+      "RaidBattle_RaidList",
+      "[JumpBack]CommonEvent_GoToDifficultyList"
     ],
     "timeout": 3000
   },

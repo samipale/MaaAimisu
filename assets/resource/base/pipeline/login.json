@@ -47,6 +47,7 @@
     "next": [
       "Login_MenuInterface",
       "[JumpBack]Common_UIClose",
+      "[JumpBack]Common_UINo",
       "Login_ClickMenu"
     ]
   },

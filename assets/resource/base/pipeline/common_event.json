@@ -1,0 +1,123 @@
+{
+  "CommonEvent_GoToDifficultyList": {
+    "next": [
+      "CommonEvent_DifficultyList",
+      "CommonEvent_QuestInterface",
+      "CommonEvent_EventQuestInterface",
+      "CommonEvent_EventMainPage",
+      "CommonEvent_RaidMainPage",
+      "CommonEvent_Menu",
+      "Common_UIClose",
+      "[JumpBack]Common_BackToMenu"
+    ]
+  },
+  "CommonEvent_Menu": {
+    "next": [
+      "CommonEvent_Depart"
+    ]
+  },
+  "CommonEvent_Depart": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "quest/depart.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "CommonEvent_QuestInterface"
+    ]
+  },
+  "CommonEvent_QuestInterface": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "quest/main_story.png"
+      }
+    },
+    "next": [
+      "CommonEvent_EventButton"
+    ],
+    "post_wait_freezes": 100
+  },
+  "CommonEvent_EventButton": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "quest/event/event_quest.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "CommonEvent_EventQuestInterface"
+    ]
+  },
+  "CommonEvent_EventQuestInterface": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "quest/event/before.png"
+      }
+    },
+    "next": [
+      "CommonEvent_ChooseEvent"
+    ],
+    "post_wait_freezes": 100
+  },
+  "CommonEvent_ChooseEvent": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "quest/event/before.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "[JumpBack]Common_ChatSkip",
+      "[JumpBack]Common_UIClose",
+      "[JumpBack]Common_NextPage",
+      "CommonEvent_DifficultyList",
+      "[JumpBack]CommonEvent_EventMainPage",
+      "[JumpBack]CommonEvent_RaidMainPage"
+    ]
+  },
+  "CommonEvent_EventMainPage": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "quest/quest_icon.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    }
+  },
+  "CommonEvent_RaidMainPage": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "raid/challenge.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    }
+  },
+  "CommonEvent_DifficultyList": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": [
+          "quest/battle_start.png",
+          "raid/attack.png"
+        ]
+      }
+    }
+  }
+}

@@ -9,7 +9,7 @@
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "common_battle/battle_start.png"
+        "template": "quest/battle_start.png"
       }
     },
     "next": [
@@ -138,7 +138,7 @@
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "common_battle/battle_failed.png"
+        "template": "quest/battle_failed.png"
       }
     },
     "focus": {
@@ -149,7 +149,7 @@
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "common_battle/BP_recover.png"
+        "template": "quest/BP_recover.png"
       }
     },
     "focus": {
@@ -160,7 +160,7 @@
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "common_battle/battle_result.png"
+        "template": "quest/battle_result.png"
       }
     },
     "next": [
