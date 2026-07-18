@@ -60,7 +60,83 @@
       "type": "Click"
     },
     "next": [
-      "Common_UIClose"
+      "Gift_ClaimResult",
+      "[JumpBack]Gift_NewCostume"
     ]
+  },
+  "Gift_ClaimResult": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "close2.png"
+      }
+    },
+    "next": [
+      "Gift_ContinueClaiming",
+      "Gift_AllClaimed",
+      "[JumpBack]Gift_NewCostume"
+    ]
+  },
+  "Gift_ContinueClaiming": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "gift/continue_claiming.png",
+        "method": 10001,
+        "threshold": 0.8,
+        "roi": "Gift_ClaimResult",
+        "roi_offset": [
+          -330,
+          -25,
+          150,
+          50
+        ]
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "Gift_ClaimResult",
+      "[JumpBack]Gift_NewCostume"
+    ],
+    "post_delay": 500
+  },
+  "Gift_AllClaimed": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "gift/all_claimed.png",
+        "method": 10001,
+        "threshold": 0.8,
+        "roi": "Gift_ClaimResult",
+        "roi_offset": [
+          -330,
+          -25,
+          150,
+          50
+        ]
+      }
+    },
+    "action": {
+      "type": "Click",
+      "param": {
+        "target": "Gift_ClaimResult"
+      }
+    },
+    "focus": {
+      "Node.Recognition.Succeeded": "领取礼物完成"
+    }
+  },
+  "Gift_NewCostume": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "gift/new_costume.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    }
   }
 }
