@@ -492,6 +492,7 @@
       "[JumpBack]Common_UIClose",
       "[JumpBack]CommonBattle_Result_Next",
       "[JumpBack]Common_UIRetry",
+      "[JumpBack]Common_TapTheScreen",
       "[JumpBack]CommonBattle_ClickResult"
     ]
   },
@@ -507,6 +508,7 @@
       "[JumpBack]Common_UIClose",
       "[JumpBack]CommonBattle_Result_Next",
       "[JumpBack]Common_UIRetry",
+      "[JumpBack]Common_TapTheScreen",
       "[JumpBack]CommonBattle_ClickResult"
     ]
   }

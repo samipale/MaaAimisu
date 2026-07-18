@@ -1,8 +1,26 @@
 {
   "SkipEvent_Entry": {
     "next": [
+      "SkipEvent_Entry_AdjustInterface",
       "SkipEvent_DifficultyList",
       "[JumpBack]CommonEvent_GoToDifficultyList"
+    ]
+  },
+  "SkipEvent_Entry_AdjustInterface": {
+    "recognition": {
+      "type": "And",
+      "param": {
+        "all_of": [
+          "Common_UIClose",
+          "CommonBattle_ChooseMultiplyMode"
+        ]
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "SkipEvent_DifficultyList"
     ]
   },
   "SkipEvent_DifficultyList": {
@@ -34,7 +52,7 @@
       "type": "Click"
     },
     "next": [
-      "[JumpBack]SkipEvent_Result",
+      "[JumpBack]CommonBattle_Result_BackToQuestList",
       "SkipEvent_AdjustFailed",
       "[JumpBack]CommonBattle_SkipQuest",
       "SkipEvent_BattleFailed",
@@ -57,9 +75,12 @@
   },
   "SkipEvent_AdjustFailed": {
     "recognition": {
-      "type": "TemplateMatch",
+      "type": "And",
       "param": {
-        "template": "close2.png"
+        "all_of": [
+          "Common_UIClose",
+          "CommonBattle_ChooseMultiplyMode"
+        ]
       }
     },
     "action": {
@@ -68,20 +89,5 @@
     "focus": {
       "Node.Recognition.Succeeded": "扫荡资源不足，扫荡完成！"
     }
-  },
-  "SkipEvent_Result": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "quest/battle_result.png"
-      }
-    },
-    "next": [
-      "CommonBattle_QuestList",
-      "[JumpBack]Common_UIClose",
-      "[JumpBack]CommonBattle_Result_Next",
-      "[JumpBack]Common_UIRetry",
-      "[JumpBack]CommonBattle_ClickResult"
-    ]
   }
 }

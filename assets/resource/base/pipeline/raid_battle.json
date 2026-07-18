@@ -1,10 +1,28 @@
 {
   "RaidBattle_Entry": {
     "next": [
+      "RaidBattle_Entry_AdjustInterface",
       "RaidBattle_RaidList",
       "[JumpBack]CommonEvent_GoToDifficultyList"
     ],
     "timeout": 3000
+  },
+  "RaidBattle_Entry_AdjustInterface": {
+    "recognition": {
+      "type": "And",
+      "param": {
+        "all_of": [
+          "Common_UIClose",
+          "CommonBattle_RaidQuest_AdjustInterface"
+        ]
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "RaidBattle_RaidList"
+    ]
   },
   "RaidBattle_RaidList": {
     "recognition": {

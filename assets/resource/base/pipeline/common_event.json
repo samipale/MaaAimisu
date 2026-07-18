@@ -6,12 +6,18 @@
       "CommonEvent_EventQuestInterface",
       "CommonEvent_EventMainPage",
       "CommonEvent_RaidMainPage",
-      "CommonEvent_Menu",
+      "CommonEvent_MenuInterface",
       "Common_UIClose",
       "[JumpBack]Common_BackToMenu"
     ]
   },
-  "CommonEvent_Menu": {
+  "CommonEvent_MenuInterface": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "login/menu_interface.png"
+      }
+    },
     "next": [
       "CommonEvent_Depart"
     ]
