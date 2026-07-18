@@ -42,6 +42,7 @@
     "task": [],
     "import": [
         "tasks/login.json",
+        "tasks/room.json",
         "tasks/skip_event.json",
         "tasks/raid_battle.json",
         "tasks/academy.json",

@@ -1,0 +1,8 @@
+{
+  "task": [
+    {
+      "name": "领取家具产物",
+      "entry": "Room_Entry"
+    }
+  ]
+}

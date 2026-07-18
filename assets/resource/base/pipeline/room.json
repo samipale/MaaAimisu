@@ -1,0 +1,116 @@
+{
+  "Room_Entry": {
+    "next": [
+      "Room_RoomButton",
+      "[JumpBack]Common_BackToMenu"
+    ]
+  },
+  "Room_RoomButton": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "room/room.png"
+      }
+    },
+    "next": [
+      "Room_CheckExclamation_ClickRoomButton",
+      "Room_NoReward"
+    ]
+  },
+  "Room_CheckExclamation_ClickRoomButton": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "!.png",
+        "roi": "Room_RoomButton",
+        "roi_offset": [
+          32,
+          -45,
+          4,
+          20
+        ]
+      }
+    },
+    "action": {
+      "type": "Click",
+      "param": {
+        "target": "Room_RoomButton"
+      }
+    },
+    "next": [
+      "Room_RoomInterface"
+    ]
+  },
+  "Room_NoReward": {
+    "focus": {
+      "Node.Recognition.Succeeded": "没有家具产物需要领取"
+    }
+  },
+  "Room_RoomInterface": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "room/room_interface.png"
+      }
+    },
+    "next": [
+      "Room_BasePosition"
+    ]
+  },
+  "Room_BasePosition": {
+    "recognition": {
+      "type": "OCR",
+      "param": {
+        "expected": "括受取"
+      }
+    },
+    "next": [
+      "[JumpBack]Common_UIClose",
+      "[JumpBack]Room_ClaimAll",
+      "Room_Done"
+    ],
+    "pre_delay": 0,
+    "post_delay": 0
+  },
+  "Room_ClaimAll": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "room/claim_all.png",
+        "method": 10001,
+        "threshold": 0.8,
+        "roi": "Room_BasePosition",
+        "roi_offset": [
+          -70,
+          -10,
+          140,
+          25
+        ]
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "post_wait_freezes": 100
+  },
+  "Room_Done": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "room/all_claimed.png",
+        "method": 10001,
+        "threshold": 0.8,
+        "roi": "Room_BasePosition",
+        "roi_offset": [
+          -70,
+          -10,
+          140,
+          25
+        ]
+      }
+    },
+    "focus": {
+      "Node.Recognition.Succeeded": "领取家具产物完成"
+    }
+  }
+}
