@@ -56,15 +56,16 @@ class AdjustSettingsAction(CustomAction):
 
         # 获得需要调整的数字，然后边点击边判断是否触发上限导致变成1
         adjust_count = final_max_skip_count - cached_skip_count
+        pipeline_override = self._get_adjust_template(skip_mode)
         while adjust_count != 0:
             if adjust_count > 0:
-                context.run_task("CommonBattle_Increase")
-                if self._is_one_time(context, skip_mode):
+                context.run_task("CommonBattle_Increase", pipeline_override)
+                if skip_mode != "raid" and self._is_one_time(context, skip_mode):
                     adjust_count = -1 # 点增加1次结果回到1次，所以需要减少1次然后直接跳出循环
                 else:
                     adjust_count -= 1
             elif adjust_count < 0:
-                context.run_task("CommonBattle_Reduce")
+                context.run_task("CommonBattle_Reduce", pipeline_override)
                 adjust_count += 1
 
         return True
@@ -129,3 +130,29 @@ class AdjustSettingsAction(CustomAction):
         if reco_result.hit:
             return True
         return False
+
+    @staticmethod
+    def _get_adjust_template(skip_mode: str) -> dict:
+        if skip_mode == "raid":
+            increase_template = "raid/increase.png"
+            reduce_template = "raid/reduce.png"
+        else:
+            increase_template = "quest/increase.png"
+            reduce_template = "quest/reduce.png"
+        pipeline_override = {
+            "CommonBattle_Increase": {
+                "recognition": {
+                    "param": {
+                        "template": increase_template
+                    }
+                }
+            },
+            "CommonBattle_Reduce": {
+                "recognition": {
+                    "param": {
+                        "template": reduce_template
+                    }
+                }
+            }
+        }
+        return pipeline_override
