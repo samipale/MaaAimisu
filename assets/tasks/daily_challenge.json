@@ -1,0 +1,8 @@
+{
+  "task": [
+    {
+      "name": "日更挑战任务",
+      "entry": "DailyChallenge_Entry"
+    }
+  ]
+}

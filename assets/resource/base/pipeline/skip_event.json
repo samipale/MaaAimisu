@@ -44,7 +44,7 @@
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "quest/quest_clear.png",
+        "template": "quest/cleared_quest.png",
         "order_by": "Vertical"
       }
     },

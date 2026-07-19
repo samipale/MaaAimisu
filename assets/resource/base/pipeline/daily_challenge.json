@@ -1,0 +1,204 @@
+{
+  "DailyChallenge_Entry": {
+    "next": [
+      "DailyChallenge_Depart",
+      "[JumpBack]Common_BackToMenu"
+    ]
+  },
+  "DailyChallenge_Depart": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "quest/depart.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "DailyChallenge_QuestInterface"
+    ]
+  },
+  "DailyChallenge_QuestInterface": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "quest/main_story.png"
+      }
+    },
+    "next": [
+      "DailyChallenge_ChallengeButton"
+    ],
+    "post_wait_freezes": 100
+  },
+  "DailyChallenge_ChallengeButton": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "quest/challenge/challenge_quest.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "DailyChallenge_ChallengeQuestInterface"
+    ]
+  },
+  "DailyChallenge_ChallengeQuestInterface": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "quest/challenge/limit_hunt.png"
+      }
+    },
+    "next": [
+      "DailyChallenge_ChooseLimitHunt"
+    ],
+    "post_wait_freezes": 100
+  },
+  "DailyChallenge_ChooseLimitHunt": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "quest/challenge/limit_hunt.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "DailyChallenge_HuntList"
+    ]
+  },
+  "DailyChallenge_HuntList": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": [
+          "quest/battle_start.png"
+        ]
+      }
+    },
+    "next": [
+      "DailyChallenge_ChooseMoneyHunt",
+      "DailyChallenge_ChooseGrainHunt",
+      "DailyChallenge_Done"
+    ]
+  },
+  "DailyChallenge_ChooseMoneyHunt": {
+    "recognition": {
+      "type": "And",
+      "param": {
+        "all_of": [
+          {
+            "sub_name": "DailyChallenge_MoneyHunt",
+            "recognition": {
+              "type": "TemplateMatch",
+              "param": {
+                "template": "quest/challenge/money_hunt.png"
+              }
+            }
+          },
+          {
+            "sub_name": "DailyChallenge_MoneyHunt_Uncleared",
+            "recognition": {
+              "type": "TemplateMatch",
+              "param": {
+                "template": [
+                  "quest/new_quest.png"
+                ],
+                "roi": "DailyChallenge_MoneyHunt",
+                "roi_offset": [
+                  -20,
+                  -40,
+                  0,
+                  20
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "DailyChallenge_BattleStart",
+      "DailyChallenge_SkipStart"
+    ],
+    "max_hit": 1
+  },
+  "DailyChallenge_MoneyHunt": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "quest/challenge/money_hunt.png"
+      }
+    }
+  },
+  "DailyChallenge_ChooseGrainHunt": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": [
+          "quest/challenge/grain_hunt.png"
+        ]
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "DailyChallenge_BattleStart",
+      "DailyChallenge_SkipStart"
+    ],
+    "max_hit": 1
+  },
+  "DailyChallenge_BattleStart": {
+    "next": [
+      "[JumpBack]CommonBattle_StartQuest",
+      "DailyChallenge_BattleResult"
+    ],
+    "pre_delay": 0,
+    "post_delay": 0
+  },
+  "DailyChallenge_SkipStart": {
+    "next": [
+      "[JumpBack]DailyChallenge_SkipQuest",
+      "DailyChallenge_BattleResult"
+    ],
+    "pre_delay": 0,
+    "post_delay": 0
+  },
+  "DailyChallenge_SkipQuest": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "quest/skip.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "next": [
+      "CommonBattle_StartSkipping"
+    ]
+  },
+  "DailyChallenge_BattleResult": {
+    "next": [
+      "[JumpBack]CommonBattle_Result_BackToQuestList",
+      "DailyChallenge_HuntList"
+    ],
+    "pre_delay": 0,
+    "post_delay": 0
+  },
+   "DailyChallenge_Done": {
+    "focus": {
+      "Node.Recognition.Succeeded": "已完成日更挑战"
+    },
+    "pre_delay": 0,
+    "post_delay": 0
+  }
+}

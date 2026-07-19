@@ -43,6 +43,7 @@
     "import": [
         "tasks/login.json",
         "tasks/room.json",
+        "tasks/daily_challenge.json",
         "tasks/skip_event.json",
         "tasks/raid_battle.json",
         "tasks/academy.json",
