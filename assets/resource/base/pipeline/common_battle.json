@@ -10,12 +10,8 @@
       "type": "Click"
     },
     "next": [
-      "[JumpBack]CommonBattle_Battling",
-      "CommonBattle_Result",
-      "[JumpBack]Common_ChatSkip",
-      "CommonBattle_Failed",
-      "CommonBattle_OutOfBP",
-      "[JumpBack]Common_UIRetry"
+      "CommonBattle_Connecting",
+      "CommonBattle_OutOfBP"
     ]
   },
   "CommonBattle_StartRaid": {
@@ -30,8 +26,7 @@
     },
     "next": [
       "CommonBattle_Connecting",
-      "CommonBattle_OutOfBP",
-      "CommonBattle_StartRaid"
+      "CommonBattle_OutOfBP"
     ]
   },
   "CommonBattle_Connecting": {
@@ -46,8 +41,31 @@
       "CommonBattle_Result",
       "[JumpBack]Common_ChatSkip",
       "CommonBattle_Failed",
+      "CommonBattle_ClearWithoutBattle",
       "[JumpBack]Common_UIRetry"
-    ]
+    ],
+    "timeout": 30000
+  },
+  "CommonBattle_ClearWithoutBattle": {
+    "recognition": {
+      "type": "And",
+      "param": {
+        "all_of": [
+          "Common_UIClose",
+          {
+            "recognition": {
+              "type": "TemplateMatch",
+              "param": {
+                "template": "quest/clear_without_battle.png"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "action": {
+      "type": "Click"
+    }
   },
   "CommonBattle_RaidQuest": {
     "recognition": {
@@ -70,7 +88,8 @@
     "next": [
       "CommonBattle_RaidQuest_AdjustInterface",
       "CommonBattle_RaidQuest"
-    ]
+    ],
+    "post_wait_freezes": 100
   },
   "CommonBattle_RaidQuest_AdjustInterface": {
     "recognition": {
@@ -394,12 +413,8 @@
       "type": "Click"
     },
     "next": [
-      "[JumpBack]CommonBattle_Battling",
-      "CommonBattle_Result",
-      "[JumpBack]Common_ChatSkip",
-      "CommonBattle_Failed",
-      "CommonBattle_OutOfBP",
-      "[JumpBack]Common_UIRetry"
+      "CommonBattle_Connecting",
+      "CommonBattle_OutOfBP"
     ]
   },
   "CommonBattle_Battling": {
@@ -493,6 +508,7 @@
       "[JumpBack]CommonBattle_Result_Next",
       "[JumpBack]Common_UIRetry",
       "[JumpBack]Common_TapTheScreen",
+      "[JumpBack]Common_ChatSkip",
       "[JumpBack]CommonBattle_ClickResult"
     ]
   },
