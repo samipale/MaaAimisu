@@ -16,11 +16,11 @@
       "type": "Click"
     },
     "next": [
-      "Academy_AcademyInterface_WaitFreezes"
+      "Academy_AcademyInterface"
     ],
     "post_wait_freezes": 100
   },
-  "Academy_AcademyInterface_WaitFreezes": {
+  "Academy_AcademyInterface": {
     "recognition": {
       "type": "TemplateMatch",
       "param": {
@@ -28,9 +28,37 @@
       }
     },
     "next": [
+      "[JumpBack]Academy_TrainingPlan_Beatrice",
+      "[JumpBack]Academy_TrainingPlan_Yu",
       "Academy_StartTraining"
     ],
     "post_wait_freezes": 100
+  },
+  "Academy_TrainingPlan_Beatrice": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "academy/omakase_beatrice.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "max_hit": 1,
+    "enabled": false
+  },
+  "Academy_TrainingPlan_Yu": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "academy/omakase_yu.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "max_hit": 1,
+    "enabled": false
   },
   "Academy_StartTraining": {
     "recognition": {
@@ -105,11 +133,11 @@
     "next": [
       "[JumpBack]Common_UIClose",
       "Academy_Next",
-      "Academy_AcademyInterface",
+      "Academy_TrainingComplete",
       "[JumpBack]Common_UIRetry"
     ]
   },
-  "Academy_AcademyInterface": {
+  "Academy_TrainingComplete": {
     "recognition": {
       "type": "TemplateMatch",
       "param": {

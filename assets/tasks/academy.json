@@ -2,7 +2,41 @@
   "task": [
     {
       "name": "学园训练",
-      "entry": "Academy_Entry"
+      "entry": "Academy_Entry",
+      "option": [
+        "学园训练_训练阵容"
+      ]
     }
-  ]
+  ],
+  "option": {
+    "学园训练_训练阵容": {
+      "type": "select",
+      "label": "训练阵容",
+      "default_case": "学园训练_训练阵容_默认阵容",
+      "cases": [
+        {
+          "name": "学园训练_训练阵容_默认阵容",
+          "label": "默认阵容"
+        },
+        {
+          "name": "学园训练_训练阵容_交给Beatrice",
+          "label": "交给Beatrice",
+          "pipeline_override": {
+            "Academy_TrainingPlan_Beatrice": {
+              "enabled": true
+            }
+          }
+        },
+        {
+          "name": "学园训练_训练阵容_交给Yu",
+          "label": "交给Yu",
+          "pipeline_override": {
+            "Academy_TrainingPlan_Yu": {
+              "enabled": true
+            }
+          }
+        }
+      ]
+    }
+  }
 }
