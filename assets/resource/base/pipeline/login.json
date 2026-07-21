@@ -26,7 +26,23 @@
       "type": "Click"
     },
     "next": [
-      "Login_GameStart",
+      "[JumpBack]Common_UIRetry",
+      "[JumpBack]Login_GameStart_Loading",
+      "Login_GameStart_Loaded"
+    ]
+  },
+  "Login_GameStart_Loading": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "login/loading.png"
+      }
+    },
+    "post_delay": 3000,
+    "max_hit": 100
+  },
+  "Login_GameStart_Loaded": {
+    "next": [
       "[JumpBack]Common_UIClose",
       "[JumpBack]Common_Skip",
       "[JumpBack]Common_UINo",
