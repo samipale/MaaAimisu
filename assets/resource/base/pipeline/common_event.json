@@ -120,8 +120,8 @@
       "type": "TemplateMatch",
       "param": {
         "template": [
-          "quest/battle_start.png",
-          "raid/attack.png"
+          "quest/event/event_exchange.png",
+          "raid/damage_point.png"
         ]
       }
     }
