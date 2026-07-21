@@ -2,7 +2,43 @@
   "task": [
     {
       "name": "日更挑战任务",
-      "entry": "DailyChallenge_Entry"
+      "entry": "DailyChallenge_Entry",
+      "option": [
+        "日更挑战任务_挑战方式"
+      ]
     }
-  ]
+  ],
+  "option": {
+    "日更挑战任务_挑战方式": {
+      "type": "select",
+      "label": "挑战方式",
+      "default_case": "日更挑战任务_挑战方式_战斗",
+      "cases": [
+        {
+          "name": "日更挑战任务_挑战方式_战斗",
+          "label": "战斗",
+          "pipeline_override": {
+            "DailyChallenge_BattleStart": {
+              "enabled": true
+            },
+            "DailyChallenge_SkipStart": {
+              "enabled": false
+            }
+          }
+        },
+        {
+          "name": "日更挑战任务_挑战方式_扫荡",
+          "label": "扫荡",
+          "pipeline_override": {
+            "DailyChallenge_BattleStart": {
+              "enabled": false
+            },
+            "DailyChallenge_SkipStart": {
+              "enabled": true
+            }
+          }
+        }
+      ]
+    }
+  }
 }
