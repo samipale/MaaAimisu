@@ -164,25 +164,11 @@
       }
     },
     "next": [
-      "QuestBattle_Result_Next",
-      "[JumpBack]Common_UIClose",
-      "[JumpBack]CommonBattle_ClickResult"
-    ]
-  },
-  "QuestBattle_Result_Next": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "next.png"
-      }
-    },
-    "action": {
-      "type": "Click"
-    },
-    "next": [
-      "QuestBattle_QuestList",
-      "[JumpBack]Common_UIRetry"
-    ]
+      "[JumpBack]CommonBattle_Result_BackToQuestList",
+      "QuestBattle_QuestList"
+    ],
+    "pre_delay": 0,
+    "post_delay": 0
   }
 }
 
