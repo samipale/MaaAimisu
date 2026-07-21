@@ -41,6 +41,7 @@
      },
     "task": [],
     "import": [
+        "tasks/common_choose_party.json",
         "tasks/login.json",
         "tasks/room.json",
         "tasks/daily_challenge.json",

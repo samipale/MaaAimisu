@@ -1,0 +1,67 @@
+{
+  "ChooseParty_ChooseParty": {
+    "action": {
+      "type": "Custom",
+      "param": {
+        "custom_action": "choose_party_action"
+      }
+    },
+    "attach": {
+      "party_name": "パーティー10"
+    },
+    "max_hit": 1,
+    "enabled": false
+  },
+  "ChooseParty_Base": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "choose_party/base_position_1.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    }
+  },
+  "ChooseParty_RecognizePartyName": {
+    "recognition": {
+      "type": "OCR",
+      "param": {
+        "roi": "ChooseParty_Base",
+        "roi_offset": [
+          -13,
+          23,
+          30,
+          -4
+        ],
+        "threshold": 0.6,
+        "only_rec": true,
+        "replace": [
+          [
+            "\\W",
+            ""
+          ],
+          [
+            "ー",
+            ""
+          ],
+          [
+            "一",
+            ""
+          ]
+        ]
+      }
+    }
+  },
+  "ChooseParty_Next": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "choose_party/next.png"
+      }
+    },
+    "action": {
+      "type": "Click"
+    }
+  }
+}

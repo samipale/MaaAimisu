@@ -1,0 +1,43 @@
+{
+  "option": {
+    "选择队伍_开启选择队伍": {
+      "type": "select",
+      "label": "开启选择队伍",
+      "default_case": "No",
+      "cases": [
+        {
+          "name": "No"
+        },
+        {
+          "name": "Yes",
+          "pipeline_override": {
+            "ChooseParty_ChooseParty": {
+              "enabled": true
+            }
+          },
+          "option": [
+            "选择队伍_输入队名"
+          ]
+        }
+      ]
+    },
+    "选择队伍_输入队名": {
+      "type": "input",
+      "inputs": [
+        {
+          "name": "选择队伍_队名",
+          "label": "队名",
+          "description": "因识别模型很难分辨日语的长音符ー与汉字一的区别，请尽量避免使用汉字一作为队名",
+          "pipeline_type": "string",
+          "pipeline_override": {
+            "ChooseParty_ChooseParty": {
+              "attach": {
+                "party_name": "{选择队伍_队名}"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
