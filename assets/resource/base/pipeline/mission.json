@@ -50,7 +50,10 @@
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "mission/achievement.png"
+        "template": [
+          "mission/achievement1.png",
+          "mission/achievement2.png"
+        ]
       }
     },
     "next": [
