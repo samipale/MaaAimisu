@@ -2,7 +2,45 @@
   "task": [
     {
       "name": "领取礼物",
-      "entry": "Gift_Entry"
+      "entry": "Gift_Entry",
+      "option": [
+        "领取礼物_领取内容"
+      ]
     }
-  ]
+  ],
+  "option": {
+    "领取礼物_领取内容": {
+      "type": "select",
+      "label": "领取内容",
+      "default_case": "领取礼物_领取内容_领取所有礼物",
+      "cases": [
+        {
+          "name": "领取礼物_领取内容_领取所有礼物",
+          "label": "领取所有礼物",
+          "pipeline_override": {
+            "Gift_ClaimAll": {
+              "recognition": {
+                "param": {
+                  "template": "gift/claim_all.png"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "领取礼物_领取内容_领取圣装以外礼物",
+          "label": "领取圣装以外礼物",
+          "pipeline_override": {
+            "Gift_ClaimAll": {
+              "recognition": {
+                "param": {
+                  "template": "gift/claim_all_except_costume.png"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
 }
