@@ -2,7 +2,206 @@
   "task": [
     {
       "name": "团队战活动",
-      "entry": "RaidBattle_Entry"
+      "entry": "RaidBattle_Entry",
+      "option": [
+        "团队战活动_选择难度",
+        "团队战活动_限制最大倍化次数",
+        "选择队伍_开启选择队伍"
+      ]
     }
-  ]
+  ],
+  "option": {
+    "团队战活动_选择难度": {
+      "type": "select",
+      "label": "选择难度",
+      "default_case": "团队战活动_选择难度_绝级",
+      "cases": [
+        {
+          "name": "团队战活动_选择难度_初级",
+          "label": "初级",
+          "pipeline_override": {
+            "RaidBattle_ChooseDifficulty": {
+              "recognition": {
+                "param": {
+                  "template": "raid/difficulty_1.png"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "团队战活动_选择难度_中级",
+          "label": "中级",
+          "pipeline_override": {
+            "RaidBattle_ChooseDifficulty": {
+              "recognition": {
+                "param": {
+                  "template": "raid/difficulty_2.png"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "团队战活动_选择难度_上级",
+          "label": "上级",
+          "pipeline_override": {
+            "RaidBattle_ChooseDifficulty": {
+              "recognition": {
+                "param": {
+                  "template": "raid/difficulty_3.png"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "团队战活动_选择难度_超级",
+          "label": "超级",
+          "pipeline_override": {
+            "RaidBattle_ChooseDifficulty": {
+              "recognition": {
+                "param": {
+                  "template": "raid/difficulty_4.png"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "团队战活动_选择难度_绝级",
+          "label": "绝级",
+          "pipeline_override": {
+            "RaidBattle_ChooseDifficulty": {
+              "recognition": {
+                "param": {
+                  "template": "raid/difficulty_5.png"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "团队战活动_选择难度_秘级",
+          "label": "秘级",
+          "pipeline_override": {
+            "RaidBattle_ChooseDifficulty": {
+              "recognition": {
+                "param": {
+                  "template": "raid/difficulty_6.png"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "团队战活动_限制最大倍化次数": {
+      "type": "select",
+      "label": "限制最大倍化次数",
+      "description": "MaaAimisu会根据BP与该选项，计算出单次战斗的最大倍化次数。",
+      "default_case": "团队战活动_限制最大倍化次数_9",
+      "cases": [
+        {
+          "name": "团队战活动_限制最大倍化次数_1",
+          "label": "1",
+          "pipeline_override": {
+            "CommonBattle_AdjustRaidSettings": {
+              "attach": {
+                "max_skip_times": 1
+              }
+            }
+          }
+        },
+        {
+          "name": "团队战活动_限制最大倍化次数_2",
+          "label": "2",
+          "pipeline_override": {
+            "CommonBattle_AdjustRaidSettings": {
+              "attach": {
+                "max_skip_times": 2
+              }
+            }
+          }
+        },
+        {
+          "name": "团队战活动_限制最大倍化次数_3",
+          "label": "3",
+          "pipeline_override": {
+            "CommonBattle_AdjustRaidSettings": {
+              "attach": {
+                "max_skip_times": 3
+              }
+            }
+          }
+        },
+        {
+          "name": "团队战活动_限制最大倍化次数_4",
+          "label": "4",
+          "pipeline_override": {
+            "CommonBattle_AdjustRaidSettings": {
+              "attach": {
+                "max_skip_times": 4
+              }
+            }
+          }
+        },
+        {
+          "name": "团队战活动_限制最大倍化次数_5",
+          "label": "5",
+          "pipeline_override": {
+            "CommonBattle_AdjustRaidSettings": {
+              "attach": {
+                "max_skip_times": 5
+              }
+            }
+          }
+        },
+        {
+          "name": "团队战活动_限制最大倍化次数_6",
+          "label": "6",
+          "pipeline_override": {
+            "CommonBattle_AdjustRaidSettings": {
+              "attach": {
+                "max_skip_times": 6
+              }
+            }
+          }
+        },
+        {
+          "name": "团队战活动_限制最大倍化次数_7",
+          "label": "7",
+          "pipeline_override": {
+            "CommonBattle_AdjustRaidSettings": {
+              "attach": {
+                "max_skip_times": 7
+              }
+            }
+          }
+        },
+        {
+          "name": "团队战活动_限制最大倍化次数_8",
+          "label": "8",
+          "pipeline_override": {
+            "CommonBattle_AdjustRaidSettings": {
+              "attach": {
+                "max_skip_times": 8
+              }
+            }
+          }
+        },
+        {
+          "name": "团队战活动_限制最大倍化次数_9",
+          "label": "9",
+          "pipeline_override": {
+            "CommonBattle_AdjustRaidSettings": {
+              "attach": {
+                "max_skip_times": 9
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
 }

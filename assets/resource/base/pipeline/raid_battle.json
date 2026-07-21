@@ -28,10 +28,22 @@
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "raid/attack.png"
+        "template": "raid/damage_point.png"
       }
     },
     "next": [
+      "RaidBattle_ChooseDifficulty"
+    ]
+  },
+  "RaidBattle_ChooseDifficulty": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "raid/difficulty_5.png"
+      }
+    },
+    "next": [
+      "[JumpBack]ChooseParty_ChooseParty",
       "RaidBattle_AdjustFailed",
       "CommonBattle_OutOfBP",
       "[JumpBack]CommonBattle_RaidQuest",
