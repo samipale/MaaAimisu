@@ -7,7 +7,7 @@
       }
     },
     "attach": {
-      "party_name": "パーティー10"
+      "party_name": "パーティー7"
     },
     "max_hit": 1,
     "enabled": false
@@ -57,7 +57,8 @@
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "choose_party/next.png"
+        "template": "choose_party/next.png",
+        "green_mask": true
       }
     },
     "action": {

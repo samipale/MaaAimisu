@@ -4,6 +4,7 @@ from maa.agent.agent_server import AgentServer
 from maa.toolkit import Toolkit
 
 import common_battle_action # noqa: F401
+import choose_party_action # noqa: F401
 import my_reco
 
 
