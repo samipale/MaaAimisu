@@ -65,7 +65,7 @@
       }
     },
     "next": [
-      "[JumpBack]Common_UIClose",
+      "[JumpBack]Room_UIClose",
       "[JumpBack]Room_ClaimAll",
       "Room_Done"
     ],
@@ -92,6 +92,20 @@
       "type": "Click"
     },
     "post_wait_freezes": 100
+  },
+  "Room_UIClose": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": [
+          "close2.png"
+        ]
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "post_wait_freezes": 200
   },
   "Room_Done": {
     "recognition": {
