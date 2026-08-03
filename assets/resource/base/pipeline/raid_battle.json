@@ -3,6 +3,7 @@
     "next": [
       "RaidBattle_Entry_AdjustInterface",
       "RaidBattle_RaidList",
+      "RaidBattle_EventDifficultyList",
       "[JumpBack]CommonEvent_GoToDifficultyList"
     ],
     "timeout": 3000
@@ -38,6 +39,19 @@
     "next": [
       "RaidBattle_ChooseDifficulty"
     ]
+  },
+  "RaidBattle_EventDifficultyList": {
+    "recognition": {
+      "type": "And",
+      "param": {
+        "all_of": [
+          "SkipEvent_DifficultyList"
+        ]
+      }
+    },
+    "focus": {
+      "Node.Recognition.Succeeded": "该活动是普通活动，请使用普通活动模块运行"
+    }
   },
   "RaidBattle_ChooseDifficulty": {
     "recognition": {

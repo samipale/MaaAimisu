@@ -3,6 +3,7 @@
     "next": [
       "SkipEvent_Entry_AdjustInterface",
       "SkipEvent_DifficultyList",
+      "SkipEvent_RaidInterface",
       "[JumpBack]CommonEvent_GoToDifficultyList"
     ]
   },
@@ -31,13 +32,26 @@
     "recognition": {
       "type": "TemplateMatch",
       "param": {
-        "template": "quest/battle_start.png"
+        "template": "quest/event/event_exchange.png"
       }
     },
     "next": [
       "SkipEvent_ChooseClearedQuest",
       "SkipEvent_NoClearedQuest"
     ]
+  },
+  "SkipEvent_RaidInterface": {
+    "recognition": {
+      "type": "And",
+      "param": {
+        "all_of": [
+          "RaidBattle_RaidList"
+        ]
+      }
+    },
+    "focus": {
+      "Node.Recognition.Succeeded": "该活动是团队战，请使用团队战活动模块运行"
+    }
   },
   "SkipEvent_NoClearedQuest": {
     "focus": {

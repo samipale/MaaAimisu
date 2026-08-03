@@ -2,14 +2,10 @@
   "CommonEvent_GoToDifficultyList": {
     "next": [
       "CommonEvent_DifficultyList",
-      "CommonEvent_QuestInterface",
-      "CommonEvent_EventQuestInterface",
-      "CommonEvent_EventMainPage",
-      "CommonEvent_RaidMainPage",
       "CommonEvent_MenuInterface",
-      "Common_UIClose",
       "[JumpBack]Common_BackToMenu"
-    ]
+    ],
+    "max_hit": 1
   },
   "CommonEvent_MenuInterface": {
     "recognition": {
@@ -59,7 +55,13 @@
       "type": "Click"
     },
     "next": [
-      "CommonEvent_EventQuestInterface"
+      "CommonEvent_EventQuestInterface",
+      "[JumpBack]Common_ChatSkip",
+      "[JumpBack]Common_UIClose",
+      "[JumpBack]Common_NextPage",
+      "CommonEvent_DifficultyList",
+      "[JumpBack]CommonEvent_EventMainPage",
+      "[JumpBack]CommonEvent_RaidMainPage"
     ]
   },
   "CommonEvent_EventQuestInterface": {
