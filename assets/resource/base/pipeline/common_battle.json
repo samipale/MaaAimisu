@@ -38,7 +38,7 @@
     },
     "next": [
       "[JumpBack]CommonBattle_Battling",
-      "CommonBattle_Result",
+      "[Anchor]BattleResult",
       "[JumpBack]Common_ChatSkip",
       "CommonBattle_Failed",
       "CommonBattle_ClearWithoutBattle",
@@ -65,9 +65,12 @@
     },
     "action": {
       "type": "Click"
-    }
+    },
+    "next": [
+      "[Anchor]QuestList"
+    ]
   },
-  "CommonBattle_RaidQuest": {
+  "CommonBattle_OpenRaidQuestSettings": {
     "recognition": {
       "type": "TemplateMatch",
       "param": {
@@ -87,7 +90,7 @@
     },
     "next": [
       "CommonBattle_RaidQuest_AdjustInterface",
-      "CommonBattle_RaidQuest"
+      "CommonBattle_OpenRaidQuestSettings"
     ],
     "post_wait_freezes": 100
   },
@@ -401,6 +404,20 @@
     }
   },
   "CommonBattle_AdjustError": {
+    "recognition": {
+      "type": "And",
+      "param": {
+        "all_of": [
+          "Common_UIClose"
+        ]
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Succeeded": "调整扫荡次数时发现BP不足，任务完成"
+    }
   },
   "CommonBattle_StartSkipping": {
     "recognition": {
@@ -434,8 +451,10 @@
       }
     },
     "focus": {
-      "Node.Recognition.Succeeded": "战斗失败"
-    }
+      "Node.Recognition.Succeeded": "战斗失败，结束任务"
+    },
+    "pre_delay": 0,
+    "post_delay": 0
   },
   "CommonBattle_OutOfBP": {
     "recognition": {
@@ -445,16 +464,10 @@
       }
     },
     "focus": {
-      "Node.Recognition.Succeeded": "BP不足"
-    }
-  },
-  "CommonBattle_Result": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "quest/battle_result.png"
-      }
-    }
+      "Node.Recognition.Succeeded": "BP不足，任务完成"
+    },
+    "pre_delay": 0,
+    "post_delay": 0
   },
   "CommonBattle_ClickResult": {
     "recognition": {
@@ -479,22 +492,6 @@
       "type": "Click"
     }
   },
-  "CommonBattle_QuestList": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "quest/battle_start.png"
-      }
-    }
-  },
-  "CommonBattle_RaidList": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "raid/attack.png"
-      }
-    }
-  },
   "CommonBattle_Result_BackToQuestList": {
     "recognition": {
       "type": "TemplateMatch",
@@ -503,28 +500,12 @@
       }
     },
     "next": [
-      "CommonBattle_QuestList",
+      "[Anchor]QuestList",
       "[JumpBack]Common_UIClose",
       "[JumpBack]CommonBattle_Result_Next",
       "[JumpBack]Common_UIRetry",
       "[JumpBack]Common_TapTheScreen",
       "[JumpBack]Common_ChatSkip",
-      "[JumpBack]CommonBattle_ClickResult"
-    ]
-  },
-  "CommonBattle_Result_BackToRaidList": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "quest/battle_result.png"
-      }
-    },
-    "next": [
-      "CommonBattle_RaidList",
-      "[JumpBack]Common_UIClose",
-      "[JumpBack]CommonBattle_Result_Next",
-      "[JumpBack]Common_UIRetry",
-      "[JumpBack]Common_TapTheScreen",
       "[JumpBack]CommonBattle_ClickResult"
     ]
   }

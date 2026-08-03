@@ -6,6 +6,10 @@
     "timeout": 3000
   },
   "QuestBattle_QuestList": {
+    "anchor": {
+      "QuestList": "QuestBattle_QuestList",
+      "BattleResult": "CommonBattle_Result_BackToQuestList"
+    },
     "recognition": {
       "type": "TemplateMatch",
       "param": {
@@ -60,10 +64,7 @@
       }
     },
     "next": [
-      "[JumpBack]CommonBattle_StartQuest",
-      "QuestBattle_Failed",
-      "QuestBattle_OutOfBP",
-      "QuestBattle_Result"
+      "CommonBattle_StartQuest"
     ],
     "inverse": true
   },
@@ -123,52 +124,13 @@
       }
     },
     "next": [
-      "[JumpBack]CommonBattle_StartQuest",
-      "QuestBattle_Failed",
-      "QuestBattle_OutOfBP",
-      "QuestBattle_Result"
+      "CommonBattle_StartQuest"
     ]
   },
   "QuestBattle_QuestDone": {
     "focus": {
       "Node.Recognition.Succeeded": "推图完成！"
     }
-  },
-  "QuestBattle_Failed": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "quest/battle_failed.png"
-      }
-    },
-    "focus": {
-      "Node.Recognition.Succeeded": "战斗失败，推图完成！"
-    }
-  },
-  "QuestBattle_OutOfBP": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "quest/BP_recover.png"
-      }
-    },
-    "focus": {
-      "Node.Recognition.Succeeded": "BP不足，推图完成！"
-    }
-  },
-  "QuestBattle_Result": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "quest/battle_result.png"
-      }
-    },
-    "next": [
-      "[JumpBack]CommonBattle_Result_BackToQuestList",
-      "QuestBattle_QuestList"
-    ],
-    "pre_delay": 0,
-    "post_delay": 0
   }
 }
 

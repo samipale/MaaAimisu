@@ -25,6 +25,10 @@
     ]
   },
   "RaidBattle_RaidList": {
+    "anchor": {
+      "QuestList": "RaidBattle_RaidList",
+      "BattleResult": "CommonBattle_Result_BackToQuestList"
+    },
     "recognition": {
       "type": "TemplateMatch",
       "param": {
@@ -44,28 +48,8 @@
     },
     "next": [
       "[JumpBack]ChooseParty_ChooseParty",
-      "RaidBattle_AdjustFailed",
-      "CommonBattle_OutOfBP",
-      "[JumpBack]CommonBattle_RaidQuest",
-      "[JumpBack]CommonBattle_Result_BackToRaidList"
+      "CommonBattle_OpenRaidQuestSettings"
     ]
-  },
-  "RaidBattle_AdjustFailed": {
-    "recognition": {
-      "type": "And",
-      "param": {
-        "all_of": [
-          "Common_UIClose",
-          "CommonBattle_RaidQuest_AdjustInterface"
-        ]
-      }
-    },
-    "action": {
-      "type": "Click"
-    },
-    "focus": {
-      "Node.Recognition.Succeeded": "BP不足，团队战活动完成！"
-    }
   }
 }
 

@@ -24,6 +24,10 @@
     ]
   },
   "SkipEvent_DifficultyList": {
+    "anchor": {
+      "QuestList": "SkipEvent_DifficultyList",
+      "BattleResult": "CommonBattle_Result_BackToQuestList"
+    },
     "recognition": {
       "type": "TemplateMatch",
       "param": {
@@ -52,42 +56,7 @@
       "type": "Click"
     },
     "next": [
-      "[JumpBack]CommonBattle_Result_BackToQuestList",
-      "SkipEvent_AdjustFailed",
-      "[JumpBack]CommonBattle_SkipQuest",
-      "SkipEvent_BattleFailed",
-      "SkipEvent_DifficultyList"
+      "CommonBattle_SkipQuest"
       ]
-  },
-  "SkipEvent_BattleFailed": {
-    "recognition": {
-      "type": "TemplateMatch",
-      "param": {
-        "template": "quest/failed_to_quest_list.png"
-      }
-    },
-    "action": {
-      "type": "Click"
-    },
-    "focus": {
-      "Node.Recognition.Succeeded": "战斗失败，扫荡完成！"
-    }
-  },
-  "SkipEvent_AdjustFailed": {
-    "recognition": {
-      "type": "And",
-      "param": {
-        "all_of": [
-          "Common_UIClose",
-          "CommonBattle_ChooseMultiplyMode"
-        ]
-      }
-    },
-    "action": {
-      "type": "Click"
-    },
-    "focus": {
-      "Node.Recognition.Succeeded": "扫荡资源不足，扫荡完成！"
-    }
   }
 }
