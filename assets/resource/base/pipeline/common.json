@@ -4,9 +4,10 @@
       "Common_MenuInterface",
       "[JumpBack]Common_UIClose",
       "[JumpBack]Common_UINo",
-      "[JumpBack]Common_ClickMenu"
+      "[JumpBack]Common_ClickMenu",
+      "[JumpBack]Common_BattleFailed_BackToQuestList"
     ],
-    "max_hit": 10
+    "max_hit": 1
   },
   "Common_MenuInterface": {
     "recognition": {
@@ -112,6 +113,20 @@
           "画面タップで次へ進みます",
           "画面をタップしてください",
           "画面選択で閉じます"
+        ]
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "post_wait_freezes": 100
+  },
+  "Common_BattleFailed_BackToQuestList": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": [
+          "quest/battle_failed_back.png"
         ]
       }
     },
