@@ -2,7 +2,10 @@
   "task": [
     {
       "name": "普通活动扫荡",
-      "entry": "SkipEvent_Entry"
+      "entry": "SkipEvent_Entry",
+      "option": [
+        "活动_选择活动序号",
+      ]
     }
   ]
 }

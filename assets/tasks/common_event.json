@@ -1,0 +1,51 @@
+{
+  "option": {
+    "活动_选择活动序号": {
+      "type": "select",
+      "label": "选择第几个活动",
+      "description": "有多个正在进行的活动时，需要调整该选项选择对应的活动",
+      "default_case": "活动_选择活动序号_1",
+      "cases": [
+        {
+          "name": "活动_选择活动序号_1",
+          "label": "1",
+          "pipeline_override": {
+            "CommonEvent_EventQuestInterface": {
+              "recognition": {
+                "param": {
+                  "index": 0
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "活动_选择活动序号_2",
+          "label": "2",
+          "pipeline_override": {
+            "CommonEvent_EventQuestInterface": {
+              "recognition": {
+                "param": {
+                  "index": 1
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "活动_选择活动序号_3",
+          "label": "3",
+          "pipeline_override": {
+            "CommonEvent_EventQuestInterface": {
+              "recognition": {
+                "param": {
+                  "index": 2
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
