@@ -40,7 +40,8 @@
     },
     "action": {
       "type": "Click"
-    }
+    },
+    "post_wait_freezes": 100
   },
   "Common_UINo": {
     "recognition": {
@@ -53,7 +54,8 @@
     },
     "action": {
       "type": "Click"
-    }
+    },
+    "post_wait_freezes": 100
   },
   "Common_UIRetry": {
     "recognition": {
@@ -99,7 +101,8 @@
     },
     "action": {
       "type": "Click"
-    }
+    },
+    "post_wait_freezes": 100
   },
   "Common_TapTheScreen": {
     "recognition": {
@@ -113,6 +116,7 @@
     },
     "action": {
       "type": "Click"
-    }
+    },
+    "post_wait_freezes": 100
   }
 }
