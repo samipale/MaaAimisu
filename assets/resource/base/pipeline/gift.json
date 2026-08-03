@@ -38,8 +38,8 @@
       }
     },
     "next": [
-      "Gift_ClaimAll",
-      "[JumpBack]Common_TapTheScreen"
+      "[JumpBack]Common_TapTheScreen",
+      "Gift_ClaimAll"
     ]
   },
   "Gift_NoGift": {
