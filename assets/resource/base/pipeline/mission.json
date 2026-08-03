@@ -92,7 +92,8 @@
     },
     "next": [
       "Mission_MissionInterface"
-    ]
+    ],
+    "post_wait_freezes": 100
   },
   "Mission_ClickExclamation": {
     "recognition": {
