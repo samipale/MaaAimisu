@@ -1,0 +1,140 @@
+{
+  "option": {
+    "CommonBattle_SkipMode": {
+      "type": "select",
+      "label": "扫荡模式",
+      "default_case": "CommonBattle_SkipMode_Multiply",
+      "cases": [
+        {
+          "name": "CommonBattle_SkipMode_Multiply",
+          "label": "倍化",
+          "pipeline_override": {
+            "CommonBattle_AdjustSkipSettings": {
+              "attach": {
+                "skip_mode": "multiply"
+              }
+            }
+          }
+        },
+        {
+          "name": "CommonBattle_SkipMode_Skip",
+          "label": "扫荡",
+          "pipeline_override": {
+            "CommonBattle_AdjustSkipSettings": {
+              "attach": {
+                "skip_mode": "skip"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "CommonBattle_MaxSkipTimes": {
+      "type": "select",
+      "label": "限制最大扫荡次数",
+      "description": "MaaAimisu会根据BP与该选项，计算出单次战斗的最大扫荡次数。",
+      "default_case": "CommonBattle_MaxSkipTimes_9",
+      "cases": [
+        {
+          "name": "CommonBattle_MaxSkipTimes_1",
+          "label": "1",
+          "pipeline_override": {
+            "CommonBattle_AdjustSkipSettings": {
+              "attach": {
+                "max_skip_times": 1
+              }
+            }
+          }
+        },
+        {
+          "name": "CommonBattle_MaxSkipTimes_2",
+          "label": "2",
+          "pipeline_override": {
+            "CommonBattle_AdjustSkipSettings": {
+              "attach": {
+                "max_skip_times": 2
+              }
+            }
+          }
+        },
+        {
+          "name": "CommonBattle_MaxSkipTimes_3",
+          "label": "3",
+          "pipeline_override": {
+            "CommonBattle_AdjustSkipSettings": {
+              "attach": {
+                "max_skip_times": 3
+              }
+            }
+          }
+        },
+        {
+          "name": "CommonBattle_MaxSkipTimes_4",
+          "label": "4",
+          "pipeline_override": {
+            "CommonBattle_AdjustSkipSettings": {
+              "attach": {
+                "max_skip_times": 4
+              }
+            }
+          }
+        },
+        {
+          "name": "CommonBattle_MaxSkipTimes_5",
+          "label": "5",
+          "pipeline_override": {
+            "CommonBattle_AdjustSkipSettings": {
+              "attach": {
+                "max_skip_times": 5
+              }
+            }
+          }
+        },
+        {
+          "name": "CommonBattle_MaxSkipTimes_6",
+          "label": "6",
+          "pipeline_override": {
+            "CommonBattle_AdjustSkipSettings": {
+              "attach": {
+                "max_skip_times": 6
+              }
+            }
+          }
+        },
+        {
+          "name": "CommonBattle_MaxSkipTimes_7",
+          "label": "7",
+          "pipeline_override": {
+            "CommonBattle_AdjustSkipSettings": {
+              "attach": {
+                "max_skip_times": 7
+              }
+            }
+          }
+        },
+        {
+          "name": "CommonBattle_MaxSkipTimes_8",
+          "label": "8",
+          "pipeline_override": {
+            "CommonBattle_AdjustSkipSettings": {
+              "attach": {
+                "max_skip_times": 8
+              }
+            }
+          }
+        },
+        {
+          "name": "CommonBattle_MaxSkipTimes_9",
+          "label": "9",
+          "pipeline_override": {
+            "CommonBattle_AdjustSkipSettings": {
+              "attach": {
+                "max_skip_times": 9
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
