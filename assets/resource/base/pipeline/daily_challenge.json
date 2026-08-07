@@ -72,6 +72,10 @@
     ]
   },
   "DailyChallenge_HuntList": {
+    "anchor": {
+      "QuestList": "DailyChallenge_HuntList",
+      "BattleResult": "CommonBattle_Result_BackToQuestList"
+    },
     "recognition": {
       "type": "TemplateMatch",
       "param": {
@@ -158,16 +162,14 @@
   },
   "DailyChallenge_BattleStart": {
     "next": [
-      "[JumpBack]CommonBattle_StartQuest",
-      "DailyChallenge_BattleResult"
+      "CommonBattle_StartQuest"
     ],
     "pre_delay": 0,
     "post_delay": 0
   },
   "DailyChallenge_SkipStart": {
     "next": [
-      "[JumpBack]DailyChallenge_SkipQuest",
-      "DailyChallenge_BattleResult"
+      "DailyChallenge_SkipQuest"
     ],
     "pre_delay": 0,
     "post_delay": 0
@@ -185,14 +187,6 @@
     "next": [
       "CommonBattle_StartSkipping"
     ]
-  },
-  "DailyChallenge_BattleResult": {
-    "next": [
-      "[JumpBack]CommonBattle_Result_BackToQuestList",
-      "DailyChallenge_HuntList"
-    ],
-    "pre_delay": 0,
-    "post_delay": 0
   },
    "DailyChallenge_Done": {
     "focus": {
