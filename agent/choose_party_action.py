@@ -39,7 +39,8 @@ class ChoosePartyAction(CustomAction):
                 print("party_name not found")
                 return False
             else:
-                recognize_party_names.append(recognize_party_name)
+                if recognize_party_name:
+                    recognize_party_names.append(recognize_party_name)
                 context.run_task("ChooseParty_Next")
                 image = context.tasker.controller.post_screencap().wait().get()
 
@@ -54,13 +55,13 @@ class ChoosePartyAction(CustomAction):
     @staticmethod
     def _get_base_roi(context: Context, image: np.ndarray) -> Rect | None:
         reco_result = context.run_recognition("ChooseParty_Base", image)
-        if reco_result:
+        if reco_result and reco_result.hit:
             return reco_result.best_result.box
         return None
 
     @staticmethod
     def _recognize_party_name(context: Context, image: np.ndarray) -> str | None:
         reco_result = context.run_recognition("ChooseParty_RecognizePartyName", image)
-        if reco_result:
+        if reco_result and reco_result.hit:
             return reco_result.best_result.text
         return None

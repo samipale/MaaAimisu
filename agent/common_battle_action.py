@@ -78,14 +78,14 @@ class AdjustSettingsAction(CustomAction):
     @staticmethod
     def _get_base_roi(context: Context, image: np.ndarray) -> Rect | None:
         reco_result = context.run_recognition("CommonBattle_SkipQuest_GetBasePosition", image)
-        if reco_result:
+        if reco_result and reco_result.hit:
             return reco_result.best_result.box
         return None
 
     @staticmethod
     def _get_cached_skip_count(context: Context, image: np.ndarray) -> int:
         reco_result = context.run_recognition("CommonBattle_SkipQuest_GetSkipCount", image)
-        if reco_result:
+        if reco_result and reco_result.hit:
             return int(reco_result.best_result.text)
         return 0
 
@@ -97,7 +97,7 @@ class AdjustSettingsAction(CustomAction):
             reco_result = context.run_recognition("CommonBattle_RaidMode_GetTotalBPCost", image)
         else:
             reco_result = context.run_recognition("CommonBattle_MultiplyMode_GetTotalBPCost", image)
-        if reco_result:
+        if reco_result and reco_result.hit:
             return int(reco_result.best_result.text)
         return 0
 
@@ -109,14 +109,14 @@ class AdjustSettingsAction(CustomAction):
             reco_result = context.run_recognition("CommonBattle_RaidMode_GetBP", image)
         else:
             reco_result = context.run_recognition("CommonBattle_MultiplyMode_GetBP", image)
-        if reco_result:
+        if reco_result and reco_result.hit:
             return int(reco_result.best_result.text)
         return 0
 
     @staticmethod
     def _get_current_skip_pass(context: Context, image: np.ndarray) -> int:
         reco_result = context.run_recognition("CommonBattle_SkipMode_GetSkipPass", image)
-        if reco_result:
+        if reco_result and reco_result.hit:
             return int(reco_result.best_result.text)
         return 0
 
@@ -127,7 +127,7 @@ class AdjustSettingsAction(CustomAction):
             reco_result = context.run_recognition("CommonBattle_RaidQuest_IsOneTime", image)
         else:
             reco_result = context.run_recognition("CommonBattle_SkipQuest_IsOneTime", image)
-        if reco_result.hit:
+        if reco_result and reco_result.hit:
             return True
         return False
 
