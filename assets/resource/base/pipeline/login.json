@@ -19,9 +19,9 @@
   },
   "Login_GameStart": {
     "recognition": {
-      "type": "TemplateMatch",
+      "type": "OCR",
       "param": {
-        "template": "login/game_start.png"
+        "expected": "ゲームスタート"
       }
     },
     "action": {
