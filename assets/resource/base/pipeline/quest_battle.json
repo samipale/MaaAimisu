@@ -95,7 +95,7 @@
       "type": "TemplateMatch",
       "param": {
         "template": [
-          "quest/bonus_quest.png"
+          "quest/event/bonus_quest.png"
         ],
         "roi": "QuestBattle_HomeButton",
         "roi_offset": [
@@ -103,7 +103,8 @@
           -492,
           335,
           55
-        ]
+        ],
+        "threshold": 0.8
       }
     },
     "focus": {

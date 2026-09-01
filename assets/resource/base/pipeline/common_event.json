@@ -127,5 +127,36 @@
         ]
       }
     }
+  },
+  "__CommonEvent_EventDifficultyRecognition_QuestBaseROI": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": [
+          "quest/event/story_quest.png"
+        ],
+        "order_by": "Vertical"
+      }
+    }
+  },
+  "__CommonEvent_EventDifficultyRecognition_QuestName": {
+    "recognition": {
+      "type": "OCR",
+      "param": {
+        "expected": [
+          "\\d"
+        ]
+      }
+    }
+  },
+  "__CommonEvent_EventDifficultyRecognition_ClearedQuest": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": [
+          "quest/cleared_quest.png"
+        ]
+      }
+    }
   }
 }

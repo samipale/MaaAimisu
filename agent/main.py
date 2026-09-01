@@ -5,7 +5,7 @@ from maa.toolkit import Toolkit
 
 import common_battle_action # noqa: F401
 import choose_party_action # noqa: F401
-import my_reco
+import difficulty_recognition # noqa: F401
 
 
 def main():
