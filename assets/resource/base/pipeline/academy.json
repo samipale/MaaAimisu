@@ -116,6 +116,7 @@
     "next": [
       "[JumpBack]Common_Skip",
       "[JumpBack]Common_ChatSkip",
+      "[JumpBack]CommonBattle_ScenarioScanning",
       "[JumpBack]Common_UIClose",
       "Academy_Next"
     ]

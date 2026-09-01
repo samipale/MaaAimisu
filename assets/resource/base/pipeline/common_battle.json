@@ -40,11 +40,22 @@
       "[JumpBack]CommonBattle_Battling",
       "[Anchor]BattleResult",
       "[JumpBack]Common_ChatSkip",
+      "[JumpBack]CommonBattle_ScenarioScanning",
       "CommonBattle_Failed",
       "CommonBattle_ClearWithoutBattle",
       "[JumpBack]Common_UIRetry"
     ],
     "timeout": 30000
+  },
+  "CommonBattle_ScenarioScanning": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": "scanning.png"
+      }
+    },
+    "pre_delay": 0,
+    "post_delay": 3000
   },
   "CommonBattle_ClearWithoutBattle": {
     "recognition": {
@@ -501,11 +512,13 @@
     },
     "next": [
       "[Anchor]QuestList",
+      "[JumpBack]SkipEvent_BattleResult_BonusQuest", // 一定要在Common_UIClose之前
       "[JumpBack]Common_UIClose",
       "[JumpBack]CommonBattle_Result_Next",
       "[JumpBack]Common_UIRetry",
       "[JumpBack]Common_TapTheScreen",
       "[JumpBack]Common_ChatSkip",
+      "[JumpBack]CommonBattle_ScenarioScanning",
       "[JumpBack]CommonBattle_ClickResult"
     ]
   }
